@@ -1,0 +1,37 @@
+syntax: glob
+core.*
+
+# Build output directories
+bin/
+lib/
+lib64/
+share/
+[._]build/
+
+# Qt generated files
+#    most of these reside in .build anyway
+# *.moc
+# moc_*.h
+# qrc_*.cpp
+# ui_*.h
+moc_*.cpp
+*.qmlc
+.qmake.stash
+
+# Qt .prf (generated from .ccprf) and .pro.user (QtCreator file)
+*.prf
+*.pro.user
+
+# Object files
+*.o
+lib*.so
+lib*.so.*
+lib*.a
+
+# Miscellaneous
+*~
+\#*\#
+Makefile*
+*.swp
+*.sensor
+*.orig

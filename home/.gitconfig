@@ -1,0 +1,21 @@
+[user]
+	name = Christopher Thompson
+	email = chris.thompson@asvglobal.com
+[core]
+	excludesfile = ~/.gitignore
+	editor = emacs
+[alias]
+	co = checkout
+	unstash = stash apply
+	addremove = !git r && git add . --all
+	in = pull --dry-run
+	out = log --branches --not --remotes
+	tags = tag -l
+	branches = branch -a
+	st = status
+	rollback = reset HEAD~1 --soft
+	lg-short = log --all --graph --abbrev-commit --decorate --format=format:'Changeset: %C(yellow)%h%C(reset)%C(red)%d%C(reset)\nAuthor: %C(cyan)%an%C(reset)\nTimestamp: %C(green)%ad (%ar)%C(reset)\nSummary: %C(white)%s%C(reset)\n'
+	lg = log --name-status --all --graph --decorate --format=format:'Changeset: %C(yellow)%H%C(reset)%C(red)%d%C(reset)\nAuthor: %C(cyan)%an (%ae)%C(reset)\nTimestamp: %C(green)%ad (%ar)%C(reset)\nSummary: %C(white)%s%C(reset)\n'
+	dog = log --all --decorate --oneline --graph
+[push]
+	default = upstream

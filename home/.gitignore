@@ -1,0 +1,37 @@
+# Compiled Sources
+*.o
+*.lib*
+*.dll*
+lib*.so*
+lib
+lib64
+bin
+
+# Misc
+.emacs.desktop*
+*.pdb
+*.ini
+*.depend
+*.dep
+
+# Temp Files
+\#*\#
+*.orig
+*~
+
+# Qt Files
+ui_*.h
+*_resource.rc
+moc*.cpp
+qrc_*.cpp
+*.prf
+Makefile*
+test_*.pro
+.qmake.stash	
+
+# Qt Auto-generated test files
+test_[^.]+$
+test_[a-zA-Z_\-]+.pro
+
+# Core files
+core.*

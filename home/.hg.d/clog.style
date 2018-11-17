@@ -1,0 +1,3 @@
+header = "* {author}\n"
+
+changeset = '- {desc|firstline|strip}\n'

@@ -1,0 +1,59 @@
+[ui]
+username           = Christopher Thompson <chris.thompson@asvglobal.com>
+merge              = meld
+interface          = curses
+ssh                = ssh -C -i ~/.ssh/id_rsa
+#ssh                = ssh -o ControlMaster=no
+ignore             = ~/.hgignore
+
+[email]
+from               = chris.thompson@asvglobal.com
+
+[auth]
+devel.prefix       = ssh://devel.asvglobal.com//devel/src/hg-repository
+devel.username     = chris.thompson
+
+devel_us.prefix    = ssh://devel-source.asvus.com//data/source
+devel_us.username  = chris.thompson
+
+devel_tmp.prefix   = ssh://devel.asvglobal.com//devel/unammed
+devel_tmp.username = chris.thompson
+
+[extensions]
+progress           =
+pager              =
+hgext.fetch        =
+shelve             =
+convert            =
+hgext.extdiff      =
+purge              =
+amend              =
+strip              =
+record             =
+
+[alias]
+parent-branch      = ! export REV=$1; export REV=${REV:-.} ; echo hg parent-branch ${REV}; $HG log -r "parents(min(branch('${REV}')))"
+; Add user to blame
+blame              = blame -n -u
+crecord            = commit -i
+last               = diff -c .
+shelves            = shelve --list
+ar                 = addremove
+describe           = log -r . --template "{latesttag}{sub('^-0-.*', '', '-{latesttagdistance}-m{node|short}')}\n"
+gethash            = log -r . --template="Commit: {rev}\nAuthor: {author}\nAge: {date|age}\nDescription: {desc}\nManifest Hash: {node}\n"
+nuke               = !$HG revert --all; $HG purge --all; $HG purge --dirs
+clog               = glog -v --style ~/.hg.d/clog.style
+cl                 = clog
+slog               = glog -v --style ~/.hg.d/slog.style
+sl                 = slog
+nlog               = glog --style ~/.hg.d/nlog.style
+nl                 = nlog
+sglog              = glog --style ~/.hg.d/sglog.style
+sgl                = sglog
+dlog               = glog --style ~/.hg.d/dlog.style
+dl                 = dlog
+
+[pager]
+pager              = LESS='FRX' less
+ignore             = version, help, update, serve, record
+attend             = annotate, cat, diff, export, glog, log, qdiff, clog, slog, nlog, sglog, dlog, in, out, sl, cl, nl, sgl, dl
