@@ -1,0 +1,5 @@
+# To check use a specific repo for commands
+yum --disablerepo="*" --enablerepo="cnav" update
+
+# To yum update with an exclusion for conflicts
+yum update --exclude=PACKAGENAME
