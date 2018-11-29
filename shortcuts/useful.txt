@@ -1,0 +1,7 @@
+"PTZ" Camera is Pan/Tilt/Zoom camera
+
+
+
+RPMs:1
+/var/lib/asv/pkgs is where RPMs are installed with asv-makerpm
+/var/lib/mock     is where RPMs are built (temp files) with asv-makerpm

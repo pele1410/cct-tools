@@ -33,3 +33,6 @@ CTRL_KEY + ',' Rename window
 
 # Swap windows
 CTRL_KEY + 'swap window -s <source#> -t <destination#>'
+
+# Zoom In/Out of a Pane
+CTRL_KEY + 'z'

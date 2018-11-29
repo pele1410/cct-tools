@@ -13,7 +13,7 @@ enable/disable #
 # Step over next line
 n
 
-# Ste into next line
+# Step into next line
 s
 
 # Continue
