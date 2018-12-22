@@ -1,0 +1,15 @@
+QT Links
+==================================================
+
+# Discussing why QObjects are not copyable
+https://www.cleanqt.io/blog/why-qobject-subclasses-are-not-copyable
+
+# Discussion about .pri vs .prf vs .prf files
+https://stackoverflow.com/a/23845651
+
+
+Geodesy Links
+==================================================
+
+# Explaining grid convergence and magnetic declination
+http://www.fountainware.com/compass/Documents/DeclinationConvergence.htm
