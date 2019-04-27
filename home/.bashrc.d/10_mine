@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/bash
 
 # Devel machines
 export DEVEL=devel.asvglobal.com
@@ -6,19 +6,10 @@ export DEVELUS=devel-source.asvus.com
 
 # Mercurial Repositories
 export HGREPO=ssh://$DEVEL//devel/src/hg-repository
+export HGREPO_EXP=ssh://$DEVEL//devel/src/hg-repository-experimental
 export HGREPO_TMP=ssh://$DEVEL//devel/unmanned
-export HGREPO_US=ssh://$DEVELUS//data/source
-export HGREPO_US_TMP=ssh://$DEVELUS//data/source-testing
-
-# Git repository for interview questions
-export CCTREPO=https://thompson_christopher_c@bitbucket.org/thompson_christopher_c
-
-# Lazy
-alias la='ls -a'
-alias ll='ls -l'
-alias lla='ls -la'
-alias qmake='qmake-qt5'
-alias qmaked='qmake-qt5 -r -config debug'
+export HGREPOUS=ssh://$DEVELUS//data/source
+export HGREPOUS_TEST=ssh://$DEVELUS//data/source-testing
 
 # Set history size much higher than normal
 export HISTSIZE=15000
@@ -32,3 +23,10 @@ export EDITOR=emacs
 # Qt logging rules
 export QT_LOGGING_RULES="*.debug=true;qt.*.debug=false"
 export QT_MESSAGE_PATTERN="`echo -e "%{if-category}|\033[32m%{category}\033[0m|%{endif}%{message} %{if-warning}(%{file}:%{line})%{endif}%{if-critical}%{backtrace}%{endif}%{if-fatal}%{backtrace}%{endif}"`"
+
+# Append my local modules to the path
+module use -a ~/.asv.d/modulefiles
+
+# Load modules
+module load install-prefix
+module load coredx

@@ -36,3 +36,11 @@ CTRL_KEY + 'swap window -s <source#> -t <destination#>'
 
 # Zoom In/Out of a Pane
 CTRL_KEY + 'z'
+
+# To search the pane
+CTRL_KEY + 'Esc'
+CTRL + 'S'
+Enter text...
+ENTER
+n  # Search again
+SHIFT + n  # Search again in reverse

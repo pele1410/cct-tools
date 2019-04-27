@@ -42,3 +42,6 @@ advance
 
 # Jump to frame
 f #
+
+# Print type info
+ptype var

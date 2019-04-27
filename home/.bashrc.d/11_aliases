@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+# Lazy
+alias la='ls -a'
+alias ll='ls -l'
+alias lla='ls -la'
+alias qmake='qmake-qt5 -r CONFIG+="release DEV_BUILD"'
+alias qmaked='qmake-qt5 -r CONFIG+="debug coverage DEV_BUILD"'
+
+# Clear any core files found in any subdir
+alias clearCores='find . -regextype posix-extended -regex ".*core\.[0-9]+" -exec rm {} \;'

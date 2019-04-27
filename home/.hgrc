@@ -10,14 +10,27 @@ ignore             = ~/.hgignore
 from               = chris.thompson@asvglobal.com
 
 [auth]
-devel.prefix       = ssh://devel.asvglobal.com//devel/src/hg-repository
-devel.username     = chris.thompson
+uk.prefix          = ssh://devel.asvglobal.com//devel/src/hg-repository
+uk.username        = chris.thompson
 
-devel_us.prefix    = ssh://devel-source.asvus.com//data/source
-devel_us.username  = chris.thompson
+uk-exp.prefix      = ssh://devel.asvglobal.com//devel/src/hg-repository-experimental
+uk-exp.username    = chris.thompson
 
-devel_tmp.prefix   = ssh://devel.asvglobal.com//devel/unammed
-devel_tmp.username = chris.thompson
+uk-tmp.prefix	   = ssh://devel.asvglobal.com//devel/unammed
+uk-tmp.username	   = chris.thompson
+
+us.prefix          = ssh://devel-source.asvus.com//data/source
+us.username        = chris.thompson
+
+us-test.prefix     = ssh://devel-source.asvus.com//data/source
+us-test.username   = chris.thompson
+
+[paths]
+uk                 = ssh://devel.asvglobal.com//devel/src/hg-repository
+uk-exp             = ssh://devel.asvglobal.com//devel/src/hg-repository-experimental
+uk-tmp             = ssh://devel.asvglobal.com//devel/unammed
+us                 = ssh://devel-source.asvus.com//data/source
+us-test            = ssh://devel-source.asvus.com//data/source-testing/
 
 [extensions]
 progress           =
@@ -37,6 +50,7 @@ parent-branch      = ! export REV=$1; export REV=${REV:-.} ; echo hg parent-bran
 blame              = blame -n -u
 crecord            = commit -i
 last               = diff -c .
+.		   = last
 shelves            = shelve --list
 ar                 = addremove
 describe           = log -r . --template "{latesttag}{sub('^-0-.*', '', '-{latesttagdistance}-m{node|short}')}\n"
@@ -56,4 +70,4 @@ dl                 = dlog
 [pager]
 pager              = LESS='FRX' less
 ignore             = version, help, update, serve, record
-attend             = annotate, cat, diff, export, glog, log, qdiff, clog, slog, nlog, sglog, dlog, in, out, sl, cl, nl, sgl, dl
+attend             = annotate, cat, diff, export, glog, log, qdiff, clog, slog, nlog, sglog, dlog, in, out, sl, cl, nl, sgl, dl, last , .

@@ -1,0 +1,8 @@
+# @{ }@ creates a group for doxy
+/// \brief Access the set of metadata
+/// @{
+metadataSet_t &metadata ()
+	{ return m_metadata; }
+metadataSet_t const &metadata () const
+	{ return m_metadata; }
+/// @}

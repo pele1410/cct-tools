@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Git repository for interview questions
+export CCTREPO=https://thompson_christopher_c@bitbucket.org/thompson_christopher_c

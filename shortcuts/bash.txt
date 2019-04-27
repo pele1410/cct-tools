@@ -54,3 +54,6 @@ patch -p1 -R < <patchfile>
 
 # Inspect a library for symbols
 objdump -tTC
+
+# Find and delete all core files
+find . -regextype posix-extended -regex '.*core\.[0-9]+' -exec rm {} \;
