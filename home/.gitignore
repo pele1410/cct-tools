@@ -27,11 +27,7 @@ qrc_*.cpp
 *.prf
 Makefile*
 test_*.pro
-.qmake.stash	
-
-# Qt Auto-generated test files
-test_[^.]+$
-test_[a-zA-Z_\-]+.pro
+.qmake.stash
 
 # Core files
 core.*

@@ -1,36 +1,12 @@
 [ui]
-username           = Christopher Thompson <chris.thompson@asvglobal.com>
+username           = Christopher Thompson <thompson.christopher.c@gmail.com>
 merge              = meld
 interface          = curses
 ssh                = ssh -C -i ~/.ssh/id_rsa
-#ssh                = ssh -o ControlMaster=no
 ignore             = ~/.hgignore
 
 [email]
-from               = chris.thompson@asvglobal.com
-
-[auth]
-uk.prefix          = ssh://devel.asvglobal.com//devel/src/hg-repository
-uk.username        = chris.thompson
-
-uk-exp.prefix      = ssh://devel.asvglobal.com//devel/src/hg-repository-experimental
-uk-exp.username    = chris.thompson
-
-uk-tmp.prefix	   = ssh://devel.asvglobal.com//devel/unammed
-uk-tmp.username	   = chris.thompson
-
-us.prefix          = ssh://devel-source.asvus.com//data/source
-us.username        = chris.thompson
-
-us-test.prefix     = ssh://devel-source.asvus.com//data/source
-us-test.username   = chris.thompson
-
-[paths]
-uk                 = ssh://devel.asvglobal.com//devel/src/hg-repository
-uk-exp             = ssh://devel.asvglobal.com//devel/src/hg-repository-experimental
-uk-tmp             = ssh://devel.asvglobal.com//devel/unammed
-us                 = ssh://devel-source.asvus.com//data/source
-us-test            = ssh://devel-source.asvus.com//data/source-testing/
+from               = thompson.christopher.c@gmail.com
 
 [extensions]
 progress           =

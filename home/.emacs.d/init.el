@@ -17,8 +17,8 @@
 ;; Spellcheck comments
 (add-hook 'c-mode-common-hook 'flyspell-prog-mode)
 
-;; Default directory is work
-(setq default-directory "/home/chris.thompson/work/")
+;; Default directory is home
+(setq default-directory "~/")
 
 ;; Support Wheel Mouse Scrolling
 (mouse-wheel-mode 1)

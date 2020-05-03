@@ -1,37 +1,35 @@
 syntax: glob
-core.*
 
-# Build output directories
-bin/
-lib/
-lib64/
-share/
-[._]build/
+# Compiled Sources
+*.o
+*.lib*
+*.dll*
+lib*.so*
+lib
+lib64
+bin
 
-# Qt generated files
-#    most of these reside in .build anyway
-# *.moc
-# moc_*.h
-# qrc_*.cpp
-# ui_*.h
-moc_*.cpp
-*.qmlc
+# Misc
+.emacs.desktop*
+*.pdb
+*.ini
+*.depend
+*.dep
+
+# Temp Files
+\#*\#
+*.orig
+*~
+
+# Qt Files
+ui_*.h
+*_resource.rc
+moc*.cpp
+qrc_*.cpp
+*.prf
+Makefile*
+test_*.pro
 .qmake.stash
 
-# Qt .prf (generated from .ccprf) and .pro.user (QtCreator file)
-*.prf
-*.pro.user
-
-# Object files
-*.o
-lib*.so
-lib*.so.*
-lib*.a
-
-# Miscellaneous
-*~
-\#*\#
-Makefile*
-*.swp
-*.sensor
-*.orig
+# Core files
+core.*
