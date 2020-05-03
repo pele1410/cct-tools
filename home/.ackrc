@@ -1,0 +1,6 @@
+--color
+--sort-files
+--pager=less -r
+--ignore-file=match:Makefile.*
+--ignore-file=match:moc_.*\.[CH]
+--ignore-file=match:sub-.*\.pro
