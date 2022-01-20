@@ -85,34 +85,34 @@
 (package-initialize)
 
 ;; Auto-dim non-focus buffers
-(auto-dim-other-buffers-mode 1)
+;;(auto-dim-other-buffers-mode 1)
 
 ;; Auto-complete C/C++
-(require 'auto-complete)
-(auto-complete-mode 1)
-(require 'auto-complete-c-headers)
-(add-to-list 'ac-sources 'ac-source-c-headers)
+;;(require 'auto-complete)
+;;(auto-complete-mode 1)
+;;(require 'auto-complete-c-headers)
+;;(add-to-list 'ac-sources 'ac-source-c-headers)
 
 ;; Do not auto-complete automatically
 ;;(setq ac-auto-start nil)
 
 ;; Just ignore case
-(setq ac-ignore-case 1)
+;;(setq ac-ignore-case 1)
 
 ;; Bind TAB to auto-complete
-(define-key ac-completing-map "\t" 'ac-complete)
-(define-key ac-completing-map "\r" nil)
+;;(define-key ac-completing-map "\t" 'ac-complete)
+;;(define-key ac-completing-map "\r" nil)
 
 ;; Auto-complete Bash
-(require 'bash-completion)
-  (bash-completion-setup)
+;;(require 'bash-completion)
+;;  (bash-completion-setup)
 
 ;; Auto-complete Better colors
-(set-face-background 'ac-candidate-face "lightgray")
-(set-face-underline 'ac-candidate-face "darkgray")
-(set-face-background 'ac-selection-face "steelblue")
+;;(set-face-background 'ac-candidate-face "lightgray")
+;;(set-face-underline 'ac-candidate-face "darkgray")
+;;(set-face-background 'ac-selection-face "steelblue")
 
 ;; Set column enforcement
-(global-column-enforce-mode t)
-(setq column-enforce-column 95)
-(setq column-enforce-face "red")
+;;(global-column-enforce-mode t)
+;;(setq column-enforce-column 95)
+;;(setq column-enforce-face "red")
