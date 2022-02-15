@@ -3,11 +3,8 @@
 # Set history size much higher than normal
 export HISTSIZE=15000
 
-# Setup local bin paths
-PATH=$PATH:~/.bin
+# Setup .local paths
+PATH=$PATH:$HOME/.bin
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/lib
 
 export EDITOR=emacs
-
-# Qt logging rules
-export QT_LOGGING_RULES="*.debug=true;qt.*.debug=false"
-export QT_MESSAGE_PATTERN="`echo -e "%{if-category}|\033[32m%{category}\033[0m|%{endif}%{message} %{if-warning}(%{file}:%{line})%{endif}%{if-critical}%{backtrace}%{endif}%{if-fatal}%{backtrace}%{endif}"`"

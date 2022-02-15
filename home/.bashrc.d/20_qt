@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+# Qt logging rules
+export QT_LOGGING_RULES="*.debug=true;qt.*.debug=false"
+export QT_MESSAGE_PATTERN="`echo -e "%{if-category}|\033[32m%{category}\033[0m|%{endif}%{message} %{if-warning}(%{file}:%{line})%{endif}%{if-critical}%{backtrace}%{endif}%{if-fatal}%{backtrace}%{endif}"`"

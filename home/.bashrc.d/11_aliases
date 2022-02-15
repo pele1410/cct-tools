@@ -2,10 +2,15 @@
 
 # Lazy
 alias la='ls -a'
-alias ll='ls -l'
-alias lla='ls -la'
+alias ll='ls -lh'
+alias lla='ls -lha'
 alias qmake='qmake-qt5 -r CONFIG+="release DEV_BUILD"'
 alias qmaked='qmake-qt5 -r CONFIG+="debug coverage DEV_BUILD"'
+alias pp='pushd'
+alias po='popd'
 
 # Clear any core files found in any subdir
-alias clearCores='find . -regextype posix-extended -regex ".*core\.[0-9]+" -exec rm {} \;'
+alias cct-clear-cores='find . -regextype posix-extended -regex ".*core\.[0-9]+" -exec rm {} \;'
+
+# Make the world
+alias cct-make-install='make -sj8 && make install -sj8'

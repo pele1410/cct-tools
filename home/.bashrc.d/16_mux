@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+export TMUXP_CONFIGDIR=$HOME/.tmuxp
