@@ -17,9 +17,6 @@
 ;; Spellcheck comments
 (add-hook 'c-mode-common-hook 'flyspell-prog-mode)
 
-;; Default directory is home
-(setq default-directory "~/")
-
 ;; Support Wheel Mouse Scrolling
 (mouse-wheel-mode 1)
 
@@ -48,7 +45,11 @@
 (setq require-final-newline 'ask)
 
 ;; Ignore stuff
-(setq completion-ignored-extensions '("~" ".o"))
+(setq completion-ignored-extensions
+    (append completion-ignored-extensions
+        (quote
+        ("~" ".a" ".so"".o"))))
+;; (setq completion-ignored-extensions '())
 
 ;; No splash screen on start
 (customize-set-variable 'inhibit-startup-screen 1)
@@ -64,11 +65,15 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector ["#2d3743" "#ff4242" "#74af68" "#dbdb95" "#34cae2" "#008b8b" "#00ede1" "#e1e1e0"])
- '(column-number-mode 1)
+ '(column-number-mode t)
  '(custom-enabled-themes (quote (tsdh-dark)))
  '(font-use-system-font 1)
+ '(inhibit-startup-screen 1)
+ '(menu-bar-mode nil)
  '(scroll-bar-mode nil)
- '(show-paren-mode 1))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil)
+ '(tooltip-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -76,43 +81,54 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; Load Auto-complete init
-;;(load "~/.emacs.d/melpa-init.el")
+;; Auto-scroll compilation output
+(setq-default compilation-scroll-output nil)
 
 ;; MELPA packages
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
 
+;; Load you-complete-me init
+;;(load "~/.emacs.d/init-ycm.el")
+
+;; Load Auto-complete init
+(load "~/.emacs.d/init-ac.el")
+
 ;; Auto-dim non-focus buffers
-;;(auto-dim-other-buffers-mode 1)
-
-;; Auto-complete C/C++
-;;(require 'auto-complete)
-;;(auto-complete-mode 1)
-;;(require 'auto-complete-c-headers)
-;;(add-to-list 'ac-sources 'ac-source-c-headers)
-
-;; Do not auto-complete automatically
-;;(setq ac-auto-start nil)
-
-;; Just ignore case
-;;(setq ac-ignore-case 1)
-
-;; Bind TAB to auto-complete
-;;(define-key ac-completing-map "\t" 'ac-complete)
-;;(define-key ac-completing-map "\r" nil)
-
-;; Auto-complete Bash
-;;(require 'bash-completion)
-;;  (bash-completion-setup)
-
-;; Auto-complete Better colors
-;;(set-face-background 'ac-candidate-face "lightgray")
-;;(set-face-underline 'ac-candidate-face "darkgray")
-;;(set-face-background 'ac-selection-face "steelblue")
+(setq auto-dim-other-buffers-mode  1)
+(setq-default auto-dim-other-buffers-mode  1)
 
 ;; Set column enforcement
-;;(global-column-enforce-mode t)
-;;(setq column-enforce-column 95)
-;;(setq column-enforce-face "red")
+(global-column-enforce-mode 1)
+(setq column-enforce-column 95)
+(setq column-enforce-face "red")
+
+;; Default .in files to Jinja
+(add-to-list 'auto-mode-alist '("*\\.in\\'" . jinja2-mode))
+
+;; Enable higlghting of ag results
+(setq ag-highlight-search 1)
+
+;; Do not require specifying make command with compile command
+(setq compilation-read-command nil)
+
+;; Shortcut to compile
+(global-set-key "\C-x\C-m" 'compile)
+
+;; Shortcut to ag search
+(global-set-key "\C-x\C-a" 'ag)
+
+;; Shortcut to search and replace
+(global-set-key "\C-x\C-r" 'replace-string)
+
+;; Disable the stupid audible bell
+(setq ring-bell-function `ignore)
+
+;; Enable the clang-format
+(load "~/.emacs.d/clang-format.el")
+(load "~/.emacs.d/clang-format+.el")
+(global-set-key (kbd "C-M-]") 'clang-format-buffer)
+
+;; clang-format before saving
+;;(add-hook 'before-save-hook 'clang-format-buffer)
