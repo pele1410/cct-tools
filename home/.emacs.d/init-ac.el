@@ -4,8 +4,14 @@
 (require 'auto-complete)
 (setq auto-complete-mode  1)
 (setq-default auto-complete-mode  1)
-(require 'auto-complete-c-headers)
+;;(require 'auto-complete-c-headers)
 (add-to-list 'ac-sources 'ac-source-c-headers)
+;; (setq achead:include-directories
+;;  (append '("/usr/include/c++/8"
+;;            "/usr/include/c++/8/x86_64-redhat-linux"
+;;            "/usr/include/c++/8/backward"
+;;            "/usr/lib/gcc/x86_64-redhat-linux/8/include")
+;;            achead:include-directories)))
 
 (ac-config-default)
 

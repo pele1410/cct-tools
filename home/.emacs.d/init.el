@@ -8,6 +8,8 @@
 (defvaralias 'c-basic-offset 'tab-width)
 
 ;; Bind the TAB key
+
+; Bind the TAB key
 (global-set-key (kbd "TAB") 'self-insert-command)
 
 ; Set 95 character width by default
@@ -86,21 +88,18 @@
 
 ;; MELPA packages
 (require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (package-initialize)
-
-;; Load you-complete-me init
-;;(load "~/.emacs.d/init-ycm.el")
-
-;; Load Auto-complete init
-(load "~/.emacs.d/init-ac.el")
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
+;;(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+;;(add-to-list 'package-archives '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/"))
 
 ;; Auto-dim non-focus buffers
 (setq auto-dim-other-buffers-mode  1)
 (setq-default auto-dim-other-buffers-mode  1)
 
 ;; Set column enforcement
-(global-column-enforce-mode 1)
+(setq global-column-enforce-mode 1)
 (setq column-enforce-column 95)
 (setq column-enforce-face "red")
 
@@ -127,8 +126,13 @@
 
 ;; Enable the clang-format
 (load "~/.emacs.d/clang-format.el")
-(load "~/.emacs.d/clang-format+.el")
 (global-set-key (kbd "C-M-]") 'clang-format-buffer)
 
 ;; clang-format before saving
 ;;(add-hook 'before-save-hook 'clang-format-buffer)
+
+;; Load you-complete-me init
+;;(load "~/.emacs.d/init-ycm.el")
+
+;; Load Auto-complete init
+;;(load "~/.emacs.d/init-ac.el")
