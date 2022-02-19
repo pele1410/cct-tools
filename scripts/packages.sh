@@ -7,6 +7,7 @@ sudo dnf install \
      aspell-en \
      clang-tools-extra \
      cmake \
+     discount \
      emacs \
      git \
      llvm-toolset \
