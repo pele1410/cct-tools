@@ -1,8 +1,11 @@
 These are my config files.  There are many like them, but these are mine
 
-
-
 # New Computer Setup
+
+## config-files
+
+Clone the config-files (this) repository.
+Symlink all of the files in home/
 
 ## Install repositories
 
@@ -10,13 +13,13 @@ These are my config files.  There are many like them, but these are mine
 
 ## Install packages
 
-- aspell-en
-- the_silver_searcher
+Run the scripts/pacakges.sh file to install known packages.
+Update this file as more packages are required
 
-## config-files
+### Install python packages
 
-Clone the config-files (this) repository.
-Symlink all of the files in home/
+Run the scripts/pacakges-python.sh file to install known packages.
+Update this file as more packages are required
 
 ## Modify .bashrc
 
@@ -39,7 +42,6 @@ Install packages:
 - auto-complete-c-headers
 - bash-completion
 - clang-format
-- coverage
 - dir-treeview
 - docker
 - docker-cli
