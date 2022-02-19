@@ -114,10 +114,11 @@
 ;; Load Auto-complete init
 ;;(load "~/.emacs.d/init-ac.el")
 
+;; Custom themes to work with my colors
+(setq custom-theme-directory "~/.emacs.d/themes")
+
 ;; Load dir-treeview
 (require 'dir-treeview)
-;; Custom theme to work with my colors
-;;(load-theme my-dir-treeview t)
 ;; F9 to invoke
 (global-set-key (kbd "<f9>") 'dir-treeview)
 
@@ -134,27 +135,12 @@
    ["#2d3743" "#ff4242" "#74af68" "#dbdb95" "#34cae2" "#008b8b" "#00ede1" "#e1e1e0"])
  '(column-number-mode t)
  '(custom-enabled-themes (quote (tsdh-dark)))
- '(custom-safe-themes
-   (quote
-    ("f19b07343286f7c9ec38b6eeda39424fba2c8fca28f0b4e69371dc27184a5682" "3eb540a4b1f96ad38167b673b04251c00cce1e3518dcd6306ffb8481d3c33944" "93542f74df5ff59d561cb538aa776a76786baec8cf033c1b2969fb97b9977eb3" "5ca998ef441c2e513b97610926b3a26d2e2f4099dd83e0e3dcf9d8d843d498b5" default)))
- '(dir-treeview-default-icon "F15B")
- '(dir-treeview-expanded-dir-icon "F07C")
- '(dir-treeview-folded-dir-icon "F07B")
- '(dir-treeview-icon-margin-right " ")
- '(dir-treeview-special-icons
-   (quote
-    ((dir-treeview-is-image-p . "F1C5")
-     (dir-treeview-is-audio-p . "F1C7")
-     (dir-treeview-is-video-p . "F1C8")
-     (dir-treeview-is-archive-p . "F1C6")
-     ("\\.pdf$" . "F1C1")
-     (file-executable-p . "F013"))))
  '(font-use-system-font 1)
  '(inhibit-startup-screen 1)
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (docker-cli docker dir-treeview coverage clang-format bash-completion auto-complete-c-headers ycm column-enforce-mode auto-complete ace-flyspell)))
+    (docker-cli docker dir-treeview clang-format bash-completion auto-complete-c-headers ycm column-enforce-mode auto-complete ace-flyspell)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
