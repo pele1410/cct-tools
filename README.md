@@ -2,27 +2,24 @@ These are my config files.  There are many like them, but these are mine
 
 # New Computer Setup
 
-## config-files
+## cct-tools
 
-Clone the config-files (this) repository.
+Clone the `cct-tools` (this) repository.
 
-Symlink all of the files in home/
+Symlink all of the files in `home/`
 
-## Install repositories
+## Install repositories and packages
 
-- epel-release
+To install common repositories, packages, and python packages, run the `scripts/installer.sh`.
 
-## Install packages
+This script is composed of multiple scripts that manage each group of installation packages.
 
-Run the `scripts/pacakges.sh` file to install known packages.
+| Script | Purpose |
+|:--|:--|
+| install-repositories.sh | Installs repositories to pull packages from |
+| install-packages.sh | Installs all the packages I commonly use |
+| install-python | Installs python (2 and 3) packages |
 
-Update this file as more packages are required
-
-### Install python packages
-
-Run the `scripts/pacakges-python.sh` file to install known packages.
-
-Update this file as more packages are required
 
 ## Modify .bashrc
 

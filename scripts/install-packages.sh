@@ -2,11 +2,14 @@
 
 set -e
 
+echo "Installing common packages"
+
 # Install various packages I usually want
 sudo dnf install \
      aspell-en \
      clang-tools-extra \
      cmake \
+     colordiff \
      discount \
      emacs \
      git \
