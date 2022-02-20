@@ -6,11 +6,11 @@ These are my config files.  There are many like them, but these are mine
 
 Clone the `cct-tools` (this) repository.
 
-Symlink all of the files in `home/`
+Symlink all of the files in [home/](home)
 
 ## Install repositories and packages
 
-To install common repositories, packages, and python packages, run the `scripts/installer.sh`.
+To install common repositories, packages, and python packages, run the [scripts/installer.sh](scripts/installer.sh).
 
 This script is composed of multiple scripts that manage each group of installation packages.
 
