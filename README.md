@@ -29,7 +29,7 @@ Update this file as more packages are required
 We want to modify the `~/.bashrc` file to load our custom scripts.  Add the following:
 
     # Source custom definitions
-    for f in "$HOME/.bashrc.d/*"
+    for f in $HOME/.bashrc.d/*
     do
     	. $f
     done
