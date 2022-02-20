@@ -21,5 +21,6 @@
 	unstage = restore --staged
 	histedit = !git rebase -i origin/HEAD
 	he = histedit
+	root = rev-parse --show-toplevel
 [push]
 	default = upstream
