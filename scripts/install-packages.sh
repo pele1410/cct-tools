@@ -13,6 +13,7 @@ sudo dnf install \
      discount \
      emacs \
      git \
+     htop \
      llvm-toolset \
      mercurial \
      the_silver_searcher \
