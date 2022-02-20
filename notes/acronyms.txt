@@ -1,5 +1,0 @@
-RAII: Resource Acquisition Is Initialization
-
-POD: Plain Old Data
-
-ABI: Application Binary Interface
