@@ -1,12 +1,12 @@
 [ui]
-username           = Christopher Thompson <thompson.christopher.c@gmail.com>
+username           = Christopher Thompson <pele1410@gmail.com>
 merge              = meld
 interface          = curses
 ssh                = ssh -C -i ~/.ssh/id_rsa
 ignore             = ~/.hgignore
 
 [email]
-from               = thompson.christopher.c@gmail.com
+from               = pele1410@gmail.com
 
 [extensions]
 progress           =

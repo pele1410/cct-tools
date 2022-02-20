@@ -1,6 +1,6 @@
 [user]
 	name = Christopher Thompson
-	email = thompson.christopher.c@gmail.com
+	email = pele1410@gmail.com
 [core]
 	excludesfile = ~/.gitignore
 	editor = emacs
@@ -8,6 +8,7 @@
 	co = checkout
 	unstash = stash apply
 	addremove = !git r && git add . --all
+	ar = addremove
 	in = pull --dry-run
 	out = log --branches --not --remotes
 	tags = tag -l
