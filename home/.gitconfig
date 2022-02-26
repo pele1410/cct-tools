@@ -28,6 +28,7 @@
 	ol = olog
 	sl = slog
 	st = status
+	up = co
 
 	### Pretty graphs ####
 
