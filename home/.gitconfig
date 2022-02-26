@@ -5,23 +5,43 @@
 	excludesfile = ~/.gitignore
 	editor = emacs
 [alias]
-	co = checkout
-	unstash = stash apply
+        ### Modify repo ##
 	addremove = !git r && git add . --all
-	ar = addremove
-	in = pull --dry-run
-	out = log --branches --not --remotes
-	tags = tag -l
-	branches = branch -a
-	st = status
-	rollback = reset HEAD~1 --soft
-	lg-short = log --all --graph --abbrev-commit --decorate --format=format:'Changeset: %C(yellow)%h%C(reset)%C(red)%d%C(reset)\nAuthor: %C(cyan)%an%C(reset)\nTimestamp: %C(green)%ad (%ar)%C(reset)\nSummary: %C(white)%s%C(reset)\n'
-	lg = log --name-status --all --graph --decorate --format=format:'Changeset: %C(yellow)%H%C(reset)%C(red)%d%C(reset)\nAuthor: %C(cyan)%an (%ae)%C(reset)\nTimestamp: %C(green)%ad (%ar)%C(reset)\nSummary: %C(white)%s%C(reset)\n'
-	dog = log --all --decorate --oneline --graph
-	unstage = restore --staged
+	amend = commit -a --amend --no-edit
 	histedit = !git rebase -i origin/HEAD
-	he = histedit
+	rollback = reset HEAD~1 --soft
+	unstage = restore --staged
+	unstash = stash apply
+
+        ### Information ###
+	branches = branch -a
+	in = pull --dry-run
+	out = olog --branches --not --remotes
 	root = rev-parse --show-toplevel
-	amend = commit --amend --no-edit
+	tags = tag -l
+
+	### Shortcuts ###
+	ar = addremove
+	co = checkout
+	he = histedit
+	nl = nlog
+	ol = olog
+	sl = slog
+	st = status
+
+	### Pretty graphs ####
+
+	# Basic log command
+	base-log = log --all --graph --decorate
+
+	# Standard log
+	slog = base-log --format=tformat:'%C(yellow)%h%C(reset)%C(magenta)%d%C(reset) %s %C(dim white)(%cr)%C(reset)'
+
+	# Show changed files only
+	nlog = base-log --name-status --format=format:'Changeset: %C(yellow)%H%C(reset)%nAuthor: %C(cyan)%an (%ae)%C(reset)%nTimestamp: %C(dim white)%ad%C(reset)%nSummary: %s%n'
+
+	# Log for 'out'
+	olog = base-log --format=format:'Changeset: %C(yellow)%H%C(reset)%nAuthor: %C(cyan)%an(%ae)%C(reset)%nTimestamp: %C(dim white)%ad%C(reset)%nSummary: %s'
+
 [push]
 	default = upstream
