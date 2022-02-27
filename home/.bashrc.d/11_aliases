@@ -9,6 +9,10 @@ alias qmaked='qmake-qt5 -r CONFIG+="debug coverage DEV_BUILD"'
 alias pp='pushd'
 alias po='popd'
 
+# Fat-fingers
+alias qhg='hg'
+alias qgit='git'
+
 # Clear any core files found in any subdir
 alias cct-clear-cores='find . -regextype posix-extended -regex ".*core\.[0-9]+" -exec rm {} \;'
 
