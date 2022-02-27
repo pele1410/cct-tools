@@ -44,5 +44,9 @@
 	# Log for 'out'
 	olog = base-log --format=format:'Changeset: %C(yellow)%H%C(reset)%nAuthor: %C(cyan)%an(%ae)%C(reset)%nTimestamp: %C(dim white)%ad%C(reset)%nSummary: %s'
 
+[fetch]
+	prune = true
+[pull]
+	ff = only
 [push]
 	default = upstream
