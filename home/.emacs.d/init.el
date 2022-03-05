@@ -143,7 +143,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (markdown-mode flymd docker-cli docker dir-treeview clang-format bash-completion auto-complete-c-headers ycm column-enforce-mode auto-complete ace-flyspell)))
+    (ag markdown-mode flymd docker-cli docker dir-treeview clang-format bash-completion auto-complete-c-headers ycm column-enforce-mode auto-complete ace-flyspell)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)

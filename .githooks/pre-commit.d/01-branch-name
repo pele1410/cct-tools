@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+LC_ALL=C
+
+local_branch="$(git rev-parse --abbrev-ref HEAD)"
+
+# Should match one of the following:
+# - issue/NN/description
+# - release/N.N.N
+valid_branch_regex="^(issue\/[0-9]+\/[a-z0-9._-]+|release\/[0-9]\.[0-9]\.[0-9])$"
+
+NC='\033[0m'
+RED='\033[0;31m'
+YELLOW='\033[0;33m'
+
+message=$(echo -e \
+"${RED}Invalid branch name.${NC}\n\
+Branch names must be of the form: ${YELLOW}$valid_branch_regex.${NC}\n\
+Examples:\n\
+- issue/1/pretty-name\n\
+- issue/123/pretty_name\n\
+- release/1.2.3\n\
+")
+
+if [[ ! $local_branch =~ $valid_branch_regex ]]
+then
+    echo "$message"
+    exit 1
+fi
+
+exit 0
