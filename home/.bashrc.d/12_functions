@@ -1,1 +1,35 @@
 #!/usr/bin/bash
+
+find_git_branch ()
+{
+	# Git repo?
+	$(git branch &> /dev/null)
+
+	if [[ $? == 0 ]]; then
+		echo $(git branch | grep \* | awk '{print $NF}')
+	fi
+}
+
+
+find_mercurial_branch ()
+{
+	# Mercurial repo?
+	$(hg branch &> /dev/null)
+
+	if [[ $? == 0 ]]; then
+		echo $(hg branch | awk '{print $NF}')
+	fi
+}
+
+find_branch ()
+{
+	foo=$(find_git_branch)
+	if [[ $? == 1 ]]; then
+		foo=$(find_mercurial_branch)
+	fi
+
+	if [[ -z "${foo}" ]]; then
+		return
+	fi
+	echo " ${RED}(${foo})${RESET}"
+}

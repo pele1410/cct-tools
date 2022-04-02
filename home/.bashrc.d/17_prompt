@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+
+# Am I in a git repo?
+
+RED="$(tput setaf 1)"
+RESET="$(tput sgr0)"
+
+# Customize the prompt by adding the git branch
+PS1="[\$(basename \$(pwd))\$(find_branch)]\\$ "
