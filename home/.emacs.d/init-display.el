@@ -53,3 +53,6 @@
                           (file-name-directory buffer-file-name))
                          (dired-directory dired-directory)
                          (t "")))))
+
+;; Disable popups
+(setq use-dialog-box nil)

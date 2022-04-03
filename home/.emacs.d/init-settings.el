@@ -31,3 +31,11 @@
         (quote
         ("~" ".a" ".so"".o"))))
 ;; (setq completion-ignored-extensions '())
+
+;; Enable history mode
+(savehist-mode)
+
+;; Recentf mode changes
+(setq recentf-max-saved-items 100
+      recentf-exclude '("/tmp/" ".*~"))
+(recentf-mode)
