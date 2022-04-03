@@ -33,6 +33,7 @@ This script is composed of multiple scripts that manage each group of installati
 | [install-repositories](scripts/install-repositories.sh) | Installs repositories to pull packages from |
 | [install-packages](scripts/install-packages.sh) | Installs all the packages I commonly use |
 | [install-python](scripts/install-python.sh) | Installs python (2 and 3) packages |
+| [install-emacs](scripts/install-emacs.sh) | Configure eMacs |
 
 
 ## Modify .bashrc
