@@ -1,0 +1,86 @@
+#!/bin/bash
+
+set -e
+
+readonly INSTALLER_DIR="$(dirname $(readlink -f ${BASH_SOURCE[0]}))"
+pushd ${INSTALLER_DIR} &> /dev/null
+
+readonly ROOT_DIR=$(git root)
+
+if [[ -z "${ROOT_DIR}" ]]; then
+	echo "Unknown root folder; exiting"
+	popd
+	exit 1
+fi
+
+echo "Running symlink tool from ${ROOT_DIR}"
+
+
+function hasTilde ()
+{
+	if [[ "${1: -1}" == "~" ]]; then
+		return 1
+	fi
+
+	return 0
+}
+
+function isInvalidFile ()
+{
+	if [[ hasTilde ]]; then
+		echo "$1 has a tilde, invalid directory"
+		return 1
+	fi
+
+	return 0
+}
+
+function isInvalidDirectory ()
+{
+	if [[ hasTilde ]]; then
+		echo "$1 has a tilde, invalid directory"
+		return 1
+	fi
+
+	if [[ "$1" == "." ]]; then
+		echo "$1 is \".\", invalid directory"
+		return 1
+	fi
+
+	if [[ "$1" == ".." ]]; then
+		echo "$1 is \"..\", invalid directory"
+		return 1
+	fi
+
+	return 0
+}
+
+function symlinkFolder ()
+{
+	echo "Symlinking folder $1"
+
+	for i in `ls -a $1`
+	do
+
+		if [[ -d "$1/$i" ]]; then
+			echo "Testing folder $i"
+			if [[ $(isInvalidDirectory $1/$i) ]]; then
+				continue
+			fi
+
+			symlinkFolder "$1/$i"
+		else
+			echo "Testing file $i"
+
+			if [[ $(isInvalidFile $1/$i) ]]; then
+				continue
+			fi
+
+			echo "Symlinking file $1/$i"
+		fi
+	done
+}
+
+symlinkFolder "${ROOT_DIR}/home"
+
+popd &> /dev/null
