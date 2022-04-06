@@ -27,32 +27,34 @@ function hasTilde ()
 
 function isInvalidFile ()
 {
-	if [[ hasTilde ]]; then
+	if [[ $(hasTilde $1) ]]; then
 		echo "$1 has a tilde, invalid directory"
-		return 1
+		return 0
 	fi
 
-	return 0
+	# NOT an invalid file
+	return 1
 }
 
 function isInvalidDirectory ()
 {
-	if [[ hasTilde ]]; then
+	if [[ $(hasTilde $1) ]]; then
 		echo "$1 has a tilde, invalid directory"
-		return 1
+		return 0
 	fi
 
 	if [[ "$1" == "." ]]; then
 		echo "$1 is \".\", invalid directory"
-		return 1
+		return 0
 	fi
 
 	if [[ "$1" == ".." ]]; then
 		echo "$1 is \"..\", invalid directory"
-		return 1
+		return 0
 	fi
 
-	return 0
+	# NOT an invalid directory
+	return 1
 }
 
 function symlinkFolder ()
@@ -61,22 +63,22 @@ function symlinkFolder ()
 
 	for i in `ls -a $1`
 	do
-
-		if [[ -d "$1/$i" ]]; then
+		local fullPath=$1/$i
+		if [[ -d "$fullPath" ]]; then
 			echo "Testing folder $i"
-			if [[ $(isInvalidDirectory $1/$i) ]]; then
+			if [[ $(isInvalidDirectory $i) ]]; then
 				continue
 			fi
 
-			symlinkFolder "$1/$i"
+			symlinkFolder "$fullPath"
 		else
 			echo "Testing file $i"
 
-			if [[ $(isInvalidFile $1/$i) ]]; then
+			if [[ $(isInvalidFile $i) ]]; then
 				continue
 			fi
 
-			echo "Symlinking file $1/$i"
+			echo "Symlinking file $fullPath"
 		fi
 	done
 }
