@@ -9,6 +9,7 @@
 	addremove = !git r && git add . --all
 	amend = commit -a --amend --no-edit
 	histedit = !git rebase -i origin/HEAD
+	nuke = !git clean -xdf & git reset --hard
 	rollback = reset HEAD~1 --soft
 	unstage = restore --staged
 	unstash = stash apply
