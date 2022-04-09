@@ -13,6 +13,7 @@ sudo dnf install \
      discount \
      emacs \
      git \
+     gnome-shell-extension-system-monitor-applet \
      htop \
      llvm-toolset \
      mercurial \
