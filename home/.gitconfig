@@ -8,6 +8,7 @@
         ### Modify repo ##
 	addremove = !git r && git add . --all
 	amend = commit -a --amend --no-edit
+	backout = revert
 	histedit = !git rebase -i origin/HEAD
 	nuke = !git clean -xdf & git reset --hard
 	rollback = reset HEAD~1 --soft
