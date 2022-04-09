@@ -77,7 +77,7 @@ function symlinkFolder ()
 			fi
 
 			if isSymlink $fullPath; then
-				cp --preserve=links $fullPath $newPath
+				cp -P $fullPath $newPath
 			else
 				ln -fs $fullPath $newPath
 			fi
