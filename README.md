@@ -20,7 +20,8 @@ Helper scripts to run various aspects of the new computer setup process
 
 Clone the `cct-tools` (this) repository.
 
-Symlink all of the files in [home/](home)
+First time repo creation should run the `cct-symlink` tool from `home/.bin` manually.
+Subsequent changes can run this from your `$PATH`
 
 ## Install repositories and packages
 
