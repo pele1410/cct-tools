@@ -17,6 +17,8 @@ find_git_branch ()
 
 	if [[ $? == 0 ]]; then
 		echo $(git branch | grep \* | awk '{print $NF}')
+	else
+		return 1
 	fi
 }
 
@@ -28,13 +30,15 @@ find_mercurial_branch ()
 
 	if [[ $? == 0 ]]; then
 		echo $(hg branch | awk '{print $NF}')
+	else
+		return 1
 	fi
 }
 
 find_branch ()
 {
 	foo=$(find_git_branch)
-	if [[ $? == 1 ]]; then
+	if [[ $? -ne 0 ]]; then
 		foo=$(find_mercurial_branch)
 	fi
 
