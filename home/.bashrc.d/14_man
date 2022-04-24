@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+export MANPATH=$MANPATH:$HOME/.local/share/man
