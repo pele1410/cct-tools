@@ -1,5 +1,15 @@
 #!/usr/bin/bash
 
+print_color ()
+{
+   	printf "${START_ESCAPE}${1}${END_ESCAPE}"
+}
+
+clear_colors ()
+{
+   	printf "${START_ESCAPE}${NO_COLOR}${END_ESCAPE}"
+}
+
 find_git_branch ()
 {
 	# Git repo?
@@ -31,7 +41,7 @@ find_branch ()
 	if [[ -z "${foo}" ]]; then
 		return
 	fi
-	echo " ${BRANCH_COLOR}(${foo})${NO_COLOR}"
+	printf " $(print_color ${BRANCH_COLOR})(${foo})$(clear_colors)"
 }
 
 # If the last command was not a success, print the result value
@@ -39,7 +49,7 @@ print_last_failure ()
 {
     	local result=$?
 	if [[ ${result} != 0 ]]; then
-		echo "${ERROR_COLOR}[${result}]${NO_COLOR}"
+		printf "$(print_color ${ERROR_COLOR})[${result}]$(clear_colors)"
     	else
 	    echo ""
 	fi

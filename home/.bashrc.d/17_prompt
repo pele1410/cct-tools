@@ -11,6 +11,12 @@ else
 	NO_COLOR=""
 fi
 
-# Customize the prompt by adding the git branch
+# Must use escape sequences since the colors are used in a function
+# http://mywiki.wooledge.org/BashFAQ/053
+START_ESCAPE='\001'
+END_ESCAPE='\002'
 
-PS1="\$(print_last_failure)[\$(basename \$(pwd))\$(find_branch)]\\$ "
+# Customize the prompt:
+# - Adding the git/hg branch if available
+# - Adding the last command result if not success
+PS1="\$(print_last_failure)[\$(basename \$(pwd))\$(find_branch)]\$ "
