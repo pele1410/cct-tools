@@ -31,5 +31,16 @@ find_branch ()
 	if [[ -z "${foo}" ]]; then
 		return
 	fi
-	echo " ${RED}(${foo})${RESET}"
+	echo " ${BRANCH_COLOR}(${foo})${NO_COLOR}"
+}
+
+# If the last command was not a success, print the result value
+print_last_failure ()
+{
+    	local result=$?
+	if [[ ${result} != 0 ]]; then
+		echo "${ERROR_COLOR}[${result}]${NO_COLOR}"
+    	else
+	    echo ""
+	fi
 }
