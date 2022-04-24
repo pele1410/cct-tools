@@ -1,9 +1,22 @@
 #!/usr/bin/bash
 
-# Am I in a git repo?
+# Only on terminals that support color
+if test $(tput colors) -ge 8; then
+	ERROR_COLOR="$(tput setab 1)"
+	BRANCH_COLOR="$(tput setaf 0)"
+	NO_COLOR="$(tput sgr0)"
+else
+	ERROR_COLOR=""
+	BRANCH_COLOR=""
+	NO_COLOR=""
+fi
 
-RED="$(tput setaf 1)"
-RESET="$(tput sgr0)"
+# Must use escape sequences since the colors are used in a function
+# http://mywiki.wooledge.org/BashFAQ/053
+START_ESCAPE='\001'
+END_ESCAPE='\002'
 
-# Customize the prompt by adding the git branch
-PS1="[\$(basename \$(pwd))\$(find_branch)]\\$ "
+# Customize the prompt:
+# - Adding the git/hg branch if available
+# - Adding the last command result if not success
+PS1="\$(print_last_failure)[\$(basename \$(pwd))\$(find_branch)]\$ "
