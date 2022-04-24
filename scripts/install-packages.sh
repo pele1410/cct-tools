@@ -17,6 +17,9 @@ sudo dnf install \
      htop \
      llvm-toolset \
      mercurial \
+     qt5-qtbase-devel \
+     qt5-assistant \
+     qt5-doc \
      the_silver_searcher \
      thunderbird \
      tmux \
