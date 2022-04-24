@@ -15,6 +15,7 @@ sudo dnf install \
      git \
      gnome-shell-extension-system-monitor-applet \
      htop \
+     libstdc++-docs \
      llvm-toolset \
      mercurial \
      qt5-qtbase-devel \
