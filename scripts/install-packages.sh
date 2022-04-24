@@ -21,6 +21,7 @@ sudo dnf install \
      qt5-qtbase-devel \
      qt5-assistant \
      qt5-doc \
+     ruby-devel \
      the_silver_searcher \
      thunderbird \
      tmux \

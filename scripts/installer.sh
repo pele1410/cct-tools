@@ -13,4 +13,7 @@ sh $INSTALLER_DIR/install-repositories.sh
 sh $INSTALLER_DIR/install-packages.sh
 
 # Then python packages
-sh $INSTALLER_DIR/install-packages-python.sh
+sh $INSTALLER_DIR/install-python.sh
+
+# Then gem packages
+sh $INSTALLER_DIR/install-gem.sh

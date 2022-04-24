@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+export GEM_HOME="$HOME/.local/gems"
+export PATH="$GEM_HOME/bin:$PATH"
