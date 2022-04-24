@@ -63,3 +63,4 @@ Install packages:
 - docker-cli
 - markdown-mode
 - flymd
+- sudo-edit

@@ -11,3 +11,23 @@
 (require 'dir-treeview)
 ;; F9 to invoke
 (global-set-key (kbd "<f9>") 'dir-treeview)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(inhibit-startup-screen 1)
+ '(menu-bar-mode nil)
+ '(package-selected-packages
+   (quote
+    (sudo-edit ycm ov markdown-mode flymd docker-cli docker dir-treeview column-enforce-mode clang-format bash-completion auto-complete-c-headers ag ace-flyspell)))
+ '(scroll-bar-mode nil)
+ '(show-paren-mode t)
+ '(tool-bar-mode nil)
+ '(tooltip-mode nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
