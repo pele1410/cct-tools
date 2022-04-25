@@ -61,6 +61,7 @@ Install packages:
 - dir-treeview
 - docker
 - docker-cli
+- jinja-mode
 - markdown-mode
 - flymd
 - sudo-edit

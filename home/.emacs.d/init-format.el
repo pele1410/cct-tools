@@ -12,7 +12,14 @@
 (global-set-key (kbd "C-M-]") 'clang-format-buffer)
 
 ;; clang-format before saving
-;;(add-hook 'before-save-hook 'clang-format-buffer)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+                    (add-hook 'before-save-hook
+                              'clang-format-buffer)))
+(add-hook 'c++-mode-common-hook
+          (lambda ()
+                    (add-hook 'before-save-hook
+                              'clang-format-buffer)))
 
 ;; Delete trailing whitespace before saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)

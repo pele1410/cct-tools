@@ -20,7 +20,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (sudo-edit ycm ov markdown-mode flymd docker-cli docker dir-treeview column-enforce-mode clang-format bash-completion auto-complete-c-headers ag ace-flyspell)))
+    (jinja2-mode sudo-edit ycm ov markdown-mode flymd docker-cli docker dir-treeview column-enforce-mode clang-format bash-completion auto-complete-c-headers ag ace-flyspell)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)

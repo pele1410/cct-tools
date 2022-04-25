@@ -6,3 +6,4 @@
 
 ;; Spellcheck comments
 (add-hook 'c-mode-common-hook 'flyspell-prog-mode)
+(add-hook 'c++-mode-common-hook 'flyspell-prog-mode)
