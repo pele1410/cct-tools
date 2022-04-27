@@ -28,6 +28,7 @@
 	he = histedit
 	nl = nlog
 	ol = olog
+	sgl = sglog
 	sl = slog
 	st = status
 	up = co
@@ -39,6 +40,9 @@
 
 	# Standard log
 	slog = base-log --format=tformat:'%C(yellow)%h%C(reset)%C(magenta)%d%C(reset) %s %C(dim white)(%cr)%C(reset)'
+
+	# Standard log
+	sglog = base-log --format=tformat:'%C(yellow)%h%C(reset)%C(magenta)%d%C(reset) %s %C(dim white)(%cr)%C(reset)%n%b'
 
 	# Show changed files only
 	nlog = base-log --name-status --format=format:'Changeset: %C(yellow)%H%C(reset)%nAuthor: %C(cyan)%an (%ae)%C(reset)%nTimestamp: %C(dim white)%ad%C(reset)%nSummary: %s%n'
