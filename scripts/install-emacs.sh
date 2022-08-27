@@ -18,6 +18,9 @@ fi
 systemctl --user start emacs
 
 # Symlink modified desktop shortcut
-ln -sf ${ROOT_DIR}/home/.local/share/applications/emacs.desktop ~/.local/share/applications/emacs.desktop
+ln -sf ${ROOT_DIR}/home/.local/share/applications/emacs.desktop ${HOME}/.local/share/applications/emacs.desktop
+
+# Symlink init scripts
+ln -sf ${ROOT_DIR}/home/.emacs.d/init*.el ${HOME}/.emac.d/
 
 popd &> /dev/null
