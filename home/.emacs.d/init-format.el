@@ -1,25 +1,21 @@
-;; Set standard indent to 8
-(setq standard-indent 8)
-(setq default-tab-width 8)
-(setq tab-width 8)
-(setq c-basic-indent 8)
-(setq c-default-style "linux" c-basic-offset 8)
-(setq indent-tabs-mode 1)
-(defvaralias 'c-basic-offset 'tab-width)
+;; Set standard indent to 8 for C++
+(defun my-c++-mode-hook ()
+  (setq standard-indent 8)
+  (setq default-tab-width 8)
+  (setq tab-width 8)
+  (setq c-basic-indent 8)
+  (setq c-default-style "linux" c-basic-offset 8)
+  (setq indent-tabs-mode 1)
+  (load "~/.emacs.d/clang-format.el")
+  (add-hook 'before-save-hook
+            'clang-format-buffer)
+  (defvaralias 'c-basic-offset 'tab-width))
 
-;; Enable the clang-format
-(load "~/.emacs.d/clang-format.el")
+(add-hook 'c-mode-hook 'my-c++-mode-hook)
+(add-hook 'c++-mode-hook 'my-c++-mode-hook)
+
+;; Enable clang-format
 (global-set-key (kbd "C-M-]") 'clang-format-buffer)
-
-;; clang-format before saving
-(add-hook 'c-mode-common-hook
-          (lambda ()
-                    (add-hook 'before-save-hook
-                              'clang-format-buffer)))
-(add-hook 'c++-mode-common-hook
-          (lambda ()
-                    (add-hook 'before-save-hook
-                              'clang-format-buffer)))
 
 ;; Delete trailing whitespace before saving
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
