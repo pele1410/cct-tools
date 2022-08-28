@@ -21,6 +21,6 @@ systemctl --user start emacs
 ln -sf ${ROOT_DIR}/home/.local/share/applications/emacs.desktop ${HOME}/.local/share/applications/emacs.desktop
 
 # Symlink init scripts
-ln -sf ${ROOT_DIR}/home/.emacs.d/init*.el ${HOME}/.emac.d/
+ln -sf ${ROOT_DIR}/home/.emacs.d/init*.el ${HOME}/.emacs.d/
 
 popd &> /dev/null

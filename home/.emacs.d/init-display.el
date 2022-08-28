@@ -16,6 +16,7 @@
 
 ;; No splash screen on start
 (customize-set-variable 'inhibit-startup-screen 1)
+(customize-set-variable 'initial-scratch-message nil)
 
 ;; Hide the various bar
 (customize-set-variable 'menu-bar-mode nil)
@@ -41,6 +42,9 @@
 ;; Enable higlghting of ag results
 (setq ag-highlight-search 1)
 
+;; Enable highlighting of search results
+(setq search-highlight t)
+
 ;; Custom themes to work with my colors
 (setq custom-theme-directory "~/.emacs.d/themes")
 
@@ -56,3 +60,5 @@
 
 ;; Disable popups
 (setq use-dialog-box nil)
+
+
