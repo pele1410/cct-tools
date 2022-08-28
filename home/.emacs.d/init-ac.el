@@ -2,21 +2,22 @@
 
 ;; Auto-complete C/C++
 (require 'auto-complete)
-(setq auto-complete-mode  1)
-(setq-default auto-complete-mode  1)
-;;(require 'auto-complete-c-headers)
-(add-to-list 'ac-sources 'ac-source-c-headers)
-;; (setq achead:include-directories
-;;  (append '("/usr/include/c++/8"
-;;            "/usr/include/c++/8/x86_64-redhat-linux"
-;;            "/usr/include/c++/8/backward"
-;;            "/usr/lib/gcc/x86_64-redhat-linux/8/include")
-;;            achead:include-directories)))
+(require 'auto-complete-c-headers)
 
-(ac-config-default)
+;; Auto-enable
+(add-hook 'after-init-hook 'global-auto-complete-mode)
+
+;; Source lists
+(add-to-list 'ac-sources 'ac-source-c-headers)
+(setq achead:include-directories
+ (append '("/usr/include/c++/8"
+           "/usr/include/c++/8/x86_64-redhat-linux"
+           "/usr/include/c++/8/backward"
+           "/usr/lib/gcc/x86_64-redhat-linux/8/include")
+           achead:include-directories))
 
 ;; Do not start automatically
-(setq ac-auto-start nil)
+;;(setq ac-auto-start nil)
 (setq ac-delay 0.3)
 
 ;; Do not ignore case
