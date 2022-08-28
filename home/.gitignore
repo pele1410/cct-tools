@@ -23,6 +23,7 @@ bin
 ui_*.h
 *_resource.rc
 moc*.cpp
+moc*.h
 qrc_*.cpp
 *.prf
 Makefile*
