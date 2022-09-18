@@ -1,3 +1,5 @@
+(load "~/.emacs.d/clang-format.el")
+
 ;; Set standard indent to 8 for C++
 (defun my-c++-mode-hook ()
   (setq standard-indent 8)
@@ -6,9 +8,9 @@
   (setq c-basic-indent 8)
   (setq c-default-style "linux" c-basic-offset 8)
   (setq indent-tabs-mode 1)
-  (load "~/.emacs.d/clang-format.el")
-  (add-hook 'before-save-hook
-            'clang-format-buffer)
+  (require 'clang-format)
+;;  (add-hook 'before-save-hook
+;;            'clang-format-buffer)
   (defvaralias 'c-basic-offset 'tab-width))
 
 (add-hook 'c-mode-hook 'my-c++-mode-hook)
