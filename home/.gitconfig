@@ -39,7 +39,7 @@
 	base-log = log --all --graph --decorate
 
 	# Standard log
-	slog = base-log --format=tformat:'%C(yellow)%h%C(reset)%C(magenta)%d%C(reset) %s %C(dim white)(%cr)%C(reset)'
+	slog = base-log --format=tformat:'%C(yellow)%h%C(reset)%C(magenta)%d%C(reset) %s %C(dim white)(%cr) %C(cyan)%ae %C(reset)'
 
 	# Standard log
 	sglog = base-log --format=tformat:'%C(yellow)%h%C(reset)%C(magenta)%d%C(reset) %s %C(dim white)(%cr)%C(reset)%n%b'
