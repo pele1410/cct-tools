@@ -6,10 +6,6 @@ These are my config files.  There are many like them, but these are mine
 
 All configuration files for various tools as well as bash
 
-## notes
-
-Collection of tidbits, notes, links I found useful at some point in my career
-
 ## scripts
 
 Helper scripts to run various aspects of the new computer setup process
