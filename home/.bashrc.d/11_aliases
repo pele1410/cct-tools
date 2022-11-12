@@ -21,3 +21,6 @@ alias cct-make-install='make -sj8 && make install -sj8'
 
 # Use emacs server
 alias emacs='emacsclient -c -a emacs -q &'
+
+# Support neovim
+alias vim='echo "I am sorry you have chosen a poor IDE, let me show you the light"; emacs'
