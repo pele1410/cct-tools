@@ -18,6 +18,7 @@ sudo dnf install \
      libstdc++-docs \
      llvm-toolset \
      mercurial \
+     podman \
      qt5-qtbase-devel \
      qt5-assistant \
      qt5-doc \
