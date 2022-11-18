@@ -14,6 +14,8 @@
 	rollback = reset HEAD~1 --soft
 	unstage = restore --staged
 	unstash = stash apply
+	# Delete local branches that have been merged into remote
+	delete-local-merged = "!git fetch && git branch --merged | egrep -v 'master' | xargs git branch -d"
 
         ### Information ###
 	branches = branch -a
@@ -49,9 +51,6 @@
 
 	# Log for 'out'
 	olog = base-log --format=format:'Changeset: %C(yellow)%H%C(reset)%nAuthor: %C(cyan)%an(%ae)%C(reset)%nTimestamp: %C(dim white)%ad%C(reset)%nSummary: %s'
-
-	# Delete local branches that have been merged into remote
-	delete-local-merged = "!git fetch && git branch --merged | egrep -v 'master' | xargs git branch -d"
 
 [fetch]
 	prune = true
