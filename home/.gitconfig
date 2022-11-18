@@ -30,7 +30,7 @@
 	ol = olog
 	sgl = sglog
 	sl = slog
-	st = status
+	st = status --short
 	up = co
 
 	### Pretty graphs ####
