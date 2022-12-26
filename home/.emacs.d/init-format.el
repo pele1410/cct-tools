@@ -24,7 +24,8 @@
   (setq indent-tabs-mode 1)
   (require 'clang-format)
 ;;  (add-hook 'before-save-hook
-;;            'clang-format-buffer))
+  ;;            'clang-format-buffer))
+  )
 (add-hook 'python-mode-hook 'my-python-mode-hook)
 
 ;; Enable clang-format
