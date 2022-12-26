@@ -27,6 +27,7 @@
 	### Shortcuts ###
 	ar = addremove
 	co = checkout
+	diffs = diff --staged
 	he = histedit
 	nl = nlog
 	ol = olog
