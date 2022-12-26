@@ -16,6 +16,17 @@
 (add-hook 'c-mode-hook 'my-c++-mode-hook)
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
 
+;; Set standard indent to 4 for Python
+(defun my-python-mode-hook ()
+  (setq standard-indent 4)
+  (setq default-tab-width 4)
+  (setq tab-width 4)
+  (setq indent-tabs-mode 1)
+  (require 'clang-format)
+;;  (add-hook 'before-save-hook
+;;            'clang-format-buffer))
+(add-hook 'python-mode-hook 'my-python-mode-hook)
+
 ;; Enable clang-format
 (global-set-key (kbd "C-M-]") 'clang-format-buffer)
 
