@@ -20,13 +20,14 @@
 ;;(setq ac-auto-start nil)
 (setq ac-delay 0.3)
 
-;; Do not ignore case
-(setq ac-ignore-case nil)
+;; Ignore case
+(setq ac-ignore-case 1)
 
-;; Do not limit candidates
-(setq ac-candidate-limit nil)
+;; Limit candidates to 10
+(setq ac-candidate-limit 10)
 
 ;; Bind Esc Esc to auto-complete
+(setq ac-auto-start nil)
 (global-set-key (kbd "<escape> <escape>") 'ac-start)
 (define-key ac-completing-map "\t" 'ac-expand)
 (define-key ac-completing-map (kbd "<tab>") 'ac-expand)
@@ -41,7 +42,7 @@
 (define-key ac-complete-mode-map (kbd "<escape>") 'ac-stop)
 
 ;; Do What I Mean Mode
-(setq ac-dwim t)
+(setq ac-dwim 1)
 
 ;; Auto-complete Bash
 (require 'bash-completion)

@@ -17,10 +17,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen 1)
+ '(initial-scratch-message nil)
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (company jinja2-mode sudo-edit ycm ov markdown-mode flymd docker-cli docker dir-treeview column-enforce-mode clang-format bash-completion auto-complete-c-headers ag ace-flyspell)))
+    (helm company-jedi company-anaconda company-c-headers company-fuzzy company-qml company-ycm company-ycmd company jinja2-mode sudo-edit ycm ov markdown-mode flymd docker-cli docker dir-treeview column-enforce-mode clang-format bash-completion ag ace-flyspell)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)

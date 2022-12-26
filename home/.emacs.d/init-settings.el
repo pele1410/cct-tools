@@ -1,5 +1,4 @@
-;
-; Bind the TAB key
+;; Bind the TAB key
 (global-set-key (kbd "TAB") 'self-insert-command)
 
 ;; Unset Ctrl-Z
