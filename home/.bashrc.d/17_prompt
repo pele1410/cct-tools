@@ -19,4 +19,4 @@ END_ESCAPE='\002'
 # Customize the prompt:
 # - Adding the git/hg branch if available
 # - Adding the last command result if not success
-PS1="\$(print_last_failure)[\$(basename \$(pwd))\$(find_branch)]\$ "
+PS1="\$(print_last_failure)[\$(basename \"\$(pwd)\")\$(find_branch)]\$ "
