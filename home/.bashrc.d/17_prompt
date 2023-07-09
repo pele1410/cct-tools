@@ -2,13 +2,15 @@
 
 # Only on terminals that support color
 if test $(tput colors) -ge 8; then
-	ERROR_COLOR="$(tput setab 1)"
-	BRANCH_COLOR="$(tput setaf 0)"
-	NO_COLOR="$(tput sgr0)"
+        ERROR_COLOR="$(tput setab 1)"
+        BRANCH_COLOR="$(tput setaf 0)"
+        STATUS_COLOR="$(tput setaf 2)"
+        NO_COLOR="$(tput sgr0)"
 else
-	ERROR_COLOR=""
-	BRANCH_COLOR=""
-	NO_COLOR=""
+        ERROR_COLOR=""
+        BRANCH_COLOR=""
+        STATUS_COLOR=""
+        NO_COLOR=""
 fi
 
 # Must use escape sequences since the colors are used in a function
@@ -19,4 +21,4 @@ END_ESCAPE='\002'
 # Customize the prompt:
 # - Adding the git/hg branch if available
 # - Adding the last command result if not success
-PS1="\$(print_last_failure)[\$(basename \"\$(pwd)\")\$(find_branch)]\$ "
+PS1="\$(print_last_failure)[\$(basename \$(pwd))\$(print_branch)\$(repo_status)]\$ "

@@ -2,59 +2,156 @@
 
 print_color ()
 {
-   	printf "${START_ESCAPE}${1}${END_ESCAPE}"
+        printf "${START_ESCAPE}${1}${END_ESCAPE}"
 }
 
 clear_colors ()
 {
-   	printf "${START_ESCAPE}${NO_COLOR}${END_ESCAPE}"
+        printf "${START_ESCAPE}${NO_COLOR}${END_ESCAPE}"
 }
 
-find_git_branch ()
+git_branch ()
 {
-	# Git repo?
-	$(git branch &> /dev/null)
+        # Git repo?
+        $(git branch &> /dev/null)
 
-	if [[ $? == 0 ]]; then
-		echo $(git branch | grep \* | awk '{print $NF}')
-	else
-		return 1
-	fi
+        if [[ $? == 0 ]]; then
+                echo $(git branch | grep \* | awk '{print $NF}')
+        else
+                return 1
+        fi
 }
 
 
-find_mercurial_branch ()
+mercurial_branch ()
 {
-	# Mercurial repo?
-	$(hg branch &> /dev/null)
+        # Mercurial repo?
+        $(hg branch &> /dev/null)
 
-	if [[ $? == 0 ]]; then
-		echo $(hg branch | awk '{print $NF}')
-	else
-		return 1
-	fi
+        if [[ $? == 0 ]]; then
+                echo $(hg branch | awk '{print $NF}')
+        else
+                return 1
+        fi
 }
 
-find_branch ()
+git_status()
 {
-	foo=$(find_git_branch)
-	if [[ $? -ne 0 ]]; then
-		foo=$(find_mercurial_branch)
-	fi
+        declare -i added=0;
+        declare -i deleted=0;
+        declare -i modified=0;
+        declare -i untracked=0;
 
-	if [[ -z "${foo}" ]]; then
-		return
-	fi
-	printf " $(print_color ${BRANCH_COLOR})(${foo})$(clear_colors)"
+        for i in $(git --no-optional-locks status -s -uall)
+                do
+                    case $i in
+                        'A')
+                            added+=1
+                            ;;
+                        'D')
+                            deleted+=1
+                            ;;
+                        'M')
+                            modified+=1
+                            ;;
+                        '??')
+                            untracked+=1
+                            ;;
+
+                    esac
+        done
+
+        output=""
+        [ $added -gt 0 ] && output+="${added}A"
+        [ $modified -gt 0 ] && output+=" ${modified}M"
+        [ $deleted -gt 0 ] && output+=" ${deleted}D"
+        [ $untracked -gt 0 ] && output+=" ${untracked}?"
+
+        echo $output
+}
+
+mercurial_status()
+{
+        declare -i added=0;
+        declare -i deleted=0;
+        declare -i modified=0;
+        declare -i removed=0;
+        declare -i untracked=0;
+
+        for i in $(hg status -admru)
+                do
+                    case $i in
+                        'A')
+                            added+=1
+                            ;;
+                        '!')
+                            deleted+=1
+                            ;;
+                        'M')
+                            modified+=1
+                            ;;
+                        'R')
+                            removed+=1
+                            ;;
+                        '?')
+                            untracked+=1
+                            ;;
+
+                    esac
+        done
+
+        output=""
+        [ $added -gt 0 ] && output+="${added}A"
+        [ $modified -gt 0 ] && output+=" ${modified}M"
+        [ $deleted -gt 0 ] && output+=" ${deleted}D"
+        [ $removed -gt 0 ] && output+=" ${removed}R"
+        [ $untracked -gt 0 ] && output+=" ${untracked}?"
+
+        echo $output
+}
+
+repo_status ()
+{
+        b=$(git_branch)
+        if [[ $? -ne 0 ]]; then
+            b=$(mercurial_branch)
+            if [[ $? -ne 0 ]]; then
+                    return 0
+            fi
+
+            status=$(mercurial_status)
+        else
+            status=$(git_status)
+        fi
+
+        if [ -z "$status" ]; then
+            return 0
+        fi
+
+        printf "$(print_color ${STATUS_COLOR}){${status}}$(clear_colors)"
+}
+
+print_branch ()
+{
+        foo=$(git_branch)
+        if [[ $? -ne 0 ]]; then
+                foo=$(mercurial_branch)
+        fi
+
+        if [[ -z "${foo}" ]]; then
+                return
+        fi
+
+        printf " $(print_color ${BRANCH_COLOR})(${foo})$(clear_colors)"
 }
 
 # If the last command was not a success, print the result value
 print_last_failure ()
 {
-    	local result=$?
-	if [[ ${result} != 0 ]]; then
-		printf "$(print_color ${ERROR_COLOR})[${result}]$(clear_colors)"
-    	else
-	    echo ""
-	fi
+        local result=$?
+        if [[ ${result} != 0 ]]; then
+                printf "$(print_color ${ERROR_COLOR})[${result}]$(clear_colors)"
+        else
+            echo ""
+        fi
 }
