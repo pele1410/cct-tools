@@ -19,17 +19,16 @@
 ;; Auto update buffers changed on disk
 (global-auto-revert-mode 1)
 
-;; Default to fundamental mode
-(setq default-major-mode 'fundamental-mode)
+;; Default to text mode
+(setq default-major-mode 'text-mode)
 
-;; Default .in files to Jinja
+;; Default file types to modes
+;; template files
 (add-to-list 'auto-mode-alist '("*\\.in\\'" . jinja2-mode))
-
-;; Default .md files to GFM Mode
+;; gdm files
 (add-to-list 'auto-mode-alist '("*\\.md\\'" . gfm-mode))
-
-;; Default .el files to list
-(add-to-list 'auto-mode-alist '("*\\.el\\'" . lisp-mode))
+;; xml files
+(add-to-list 'auto-mode-alist '("*\\.xml\\'" . nxml-mode))
 
 ;; Ignore stuff
 (setq completion-ignored-extensions

@@ -1,7 +1,9 @@
-;; MELPA packages
+;
+; MELPA packages
 (require 'package)
 (package-initialize)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
 
 ;; Load all init el files in the .emacs.d directory
@@ -21,7 +23,7 @@
  '(menu-bar-mode nil)
  '(package-selected-packages
    (quote
-    (helm company-jedi company-anaconda company-c-headers company-fuzzy company-qml company-ycm company-ycmd company jinja2-mode sudo-edit ycm ov markdown-mode flymd docker-cli docker dir-treeview column-enforce-mode clang-format bash-completion ag ace-flyspell)))
+    (magit git-modes git org rainbow-mode helm company-jedi company-anaconda company-c-headers company-fuzzy company-qml company-ycm company-ycmd company jinja2-mode sudo-edit ycm ov markdown-mode flymd docker-cli docker dir-treeview column-enforce-mode clang-format bash-completion ag ace-flyspell)))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)
@@ -32,3 +34,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(require 'org)
