@@ -9,16 +9,17 @@ ignore             = ~/.hgignore
 from               = pele1410@gmail.com
 
 [extensions]
-progress           =
-pager              =
-hgext.fetch        =
-shelve             =
-convert            =
-hgext.extdiff      =
-purge              =
 amend              =
-strip              =
+convert            =
+graphlog           =
+hgext.extdiff      =
+hgext.fetch        =
+pager              =
+progress           =
+purge              =
 record             =
+shelve             =
+strip              =
 
 [alias]
 parent-branch      = ! export REV=$1; export REV=${REV:-.} ; echo hg parent-branch ${REV}; $HG log -r "parents(min(branch('${REV}')))"
@@ -26,7 +27,7 @@ parent-branch      = ! export REV=$1; export REV=${REV:-.} ; echo hg parent-bran
 blame              = blame -n -u
 crecord            = commit -i
 last               = diff -c .
-.		   = last
+.                  = last
 shelves            = shelve --list
 ar                 = addremove
 describe           = log -r . --template "{latesttag}{sub('^-0-.*', '', '-{latesttagdistance}-m{node|short}')}\n"
