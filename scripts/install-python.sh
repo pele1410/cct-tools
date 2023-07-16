@@ -2,9 +2,8 @@
 
 set -e
 
+readonly INSTALLER_DIR="$(dirname $(readlink -f ${BASH_SOURCE[0]}))"
+
 echo "Installing common python packages"
 
-# Install various Python packages I usually want
-python3 -m pip install \
-	tmuxp \
-	--user --upgrade
+python3 -m pip install --upgrade --user -r "${INSTALLER_DIR}/python-requirements.txt"
