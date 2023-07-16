@@ -1,61 +1,65 @@
 [user]
-	name = Christopher Thompson
-	email = pele1410@gmail.com
+name = Christopher Thompson
+email = pele1410@gmail.com
+
 [core]
-	excludesfile = ~/.gitignore
-	editor = emacs
+excludesfile = ~/.gitignore
+editor = emacs
+
 [alias]
-        ### Modify repo ##
-	addremove = !git r && git add . --all
-	amend = commit -a --amend --no-edit
-	backout = revert
-	histedit = !git rebase -i origin/HEAD
-	nuke = !git clean -xdf & git reset --hard
-	rollback = reset HEAD~1 --soft
-	unstage = restore --staged
-	unstash = stash apply
-	# Delete local branches that have been merged into remote
-	delete-local-merged = "!git fetch && git branch --merged | egrep -v 'master' | xargs git branch -d"
+### Modify repo ##
+addremove = !git r && git add . --all
+amend = commit -a --amend --no-edit
+backout = revert
+histedit = !git rebase -i origin/HEAD
+nuke = !git clean -xdf & git reset --hard
+rollback = reset HEAD~1 --soft
+unstage = restore --staged
+unstash = stash apply
+# Delete local branches that have been merged into remote
+delete-local-merged = "!git fetch && git branch --merged | egrep -v 'master' | xargs git branch -d"
 
-        ### Information ###
-	branches = branch -a
-	in = pull --dry-run
-	out = olog --branches --not --remotes
-	root = rev-parse --show-toplevel
-	tags = tag -l
+### Information ###
+branches = branch -a
+in = pull --dry-run
+out = olog --branches --not --remotes
+root = rev-parse --show-toplevel
+tags = tag -l
 
-	### Shortcuts ###
-	ar = addremove
-	co = checkout
-	diffs = diff --staged
-	he = histedit
-	nl = nlog
-	ol = olog
-	sgl = sglog
-	sl = slog
-	st = status --short
-	up = co
+### Shortcuts ###
+ar = addremove
+co = checkout
+diffs = diff --staged
+he = histedit
+nl = nlog
+ol = olog
+sgl = sglog
+sl = slog
+st = status --short
+up = co
 
-	### Pretty graphs ####
+### Pretty graphs ####
 
-	# Basic log command
-	base-log = log --all --graph --decorate
+# Basic log command
+base-log = log --all --graph --decorate
 
-	# Standard log
-	slog = base-log --format=tformat:'%C(yellow)%h%C(reset)%C(magenta)%d%C(reset) %s %C(dim white)(%cr) %C(cyan)%ae %C(reset)'
+# Standard log
+slog = base-log --format=tformat:'%C(yellow)%h%C(reset)%C(magenta)%d%C(reset) %s %C(dim white)(%cr) %C(cyan)%ae %C(reset)'
 
-	# Standard log
-	sglog = base-log --format=tformat:'%C(yellow)%h%C(reset)%C(magenta)%d%C(reset) %s %C(dim white)(%cr)%C(reset)%n%b'
+# Extra log
+sglog = base-log --format=tformat:'%C(yellow)%h%C(reset)%C(magenta)%d%C(reset) %s %C(dim white)(%cr)%C(reset)%n%b'
 
-	# Show changed files only
-	nlog = base-log --name-status --format=format:'Changeset: %C(yellow)%H%C(reset)%nAuthor: %C(cyan)%an (%ae)%C(reset)%nTimestamp: %C(dim white)%ad%C(reset)%nSummary: %s%n'
+# Show changed files only
+nlog = base-log --name-status --format=format:'Changeset: %C(yellow)%H%C(reset)%nAuthor: %C(cyan)%an (%ae)%C(reset)%nTimestamp: %C(dim white)%ad%C(reset)%nSummary: %s%n'
 
-	# Log for 'out'
-	olog = base-log --format=format:'Changeset: %C(yellow)%H%C(reset)%nAuthor: %C(cyan)%an(%ae)%C(reset)%nTimestamp: %C(dim white)%ad%C(reset)%nSummary: %s'
+# Log for 'out'
+olog = base-log --format=format:'Changeset: %C(yellow)%H%C(reset)%nAuthor: %C(cyan)%an(%ae)%C(reset)%nTimestamp: %C(dim white)%ad%C(reset)%nSummary: %s'
 
 [fetch]
-	prune = true
+prune = true
+
 [pull]
-	ff = only
+ff = only
+
 [push]
-	default = upstream
+default = upstream
