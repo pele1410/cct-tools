@@ -12,6 +12,7 @@ addremove = !git r && git add . --all
 amend = commit -a --amend --no-edit
 backout = revert
 histedit = !git rebase -i origin/HEAD
+nb = !git checkout -b $1 && git commit -m \"Create branch $1\" --allow-empty && :
 nuke = !git clean -xdf & git reset --hard
 rollback = reset HEAD~1 --soft
 unstage = restore --staged
