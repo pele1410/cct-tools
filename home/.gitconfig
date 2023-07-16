@@ -21,6 +21,7 @@ delete-local-merged = "!git fetch && git branch --merged | egrep -v 'master' | x
 
 ### Information ###
 branches = branch -a
+head = !git show HEAD
 in = pull --dry-run
 out = olog --branches --not --remotes
 root = rev-parse --show-toplevel
