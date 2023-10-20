@@ -49,11 +49,11 @@ We want to modify the `~/.bashrc` file to load our custom scripts.  Add the foll
 Install packages:
 
 - ag
-- enforce-column-mode
-- ace-flyspell-mode
+- ace-flyspellemac
 - auto-complete-c-headers
 - bash-completion
 - clang-format
+- column-enforce-mode
 - dir-treeview
 - docker
 - docker-cli
