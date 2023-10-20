@@ -16,7 +16,7 @@ sh $INSTALLER_DIR/install-packages.sh
 sh $INSTALLER_DIR/install-python.sh
 
 # Then gem packages
-sh $INSTALLER_DIR/install-gem.sh
+sh $INSTALLER_DIR/install-gems.sh
 
 # Then emacs packages
 sh $INSTALLER_DIR/install-emacs.sh

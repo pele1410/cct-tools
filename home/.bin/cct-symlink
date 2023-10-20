@@ -3,7 +3,7 @@
 readonly INSTALLER_DIR="$(dirname $(readlink -f ${BASH_SOURCE[0]}))"
 pushd ${INSTALLER_DIR} &> /dev/null
 
-readonly ROOT_DIR=$(git root)
+readonly ROOT_DIR=$(git rev-parse --show-toplevel)
 readonly STARTING_DIR="${ROOT_DIR}/home"
 
 if [[ -z "${ROOT_DIR}" ]]; then

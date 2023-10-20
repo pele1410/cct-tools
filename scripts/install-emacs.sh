@@ -6,7 +6,7 @@ echo "Configuring eMacs Environment"
 
 pushd $(dirname $(readlink -f ${BASH_SOURCE[0]})) &> /dev/null
 
-readonly ROOT_DIR=$(git root)
+readonly ROOT_DIR=$(git rev-parse --show-toplevel)
 
 if [[ -z "${ROOT_DIR}" ]]; then
 	echo "Unknown root folder; exiting"
