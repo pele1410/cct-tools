@@ -54,6 +54,8 @@ Install packages:
 - bash-completion
 - clang-format
 - column-enforce-mode
+- company
+- company-c-headers
 - dir-treeview
 - docker
 - docker-cli
