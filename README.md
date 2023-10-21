@@ -46,20 +46,13 @@ We want to modify the `~/.bashrc` file to load our custom scripts.  Add the foll
 
 ## Configure Emacs
 
-Install packages:
+### Install packages
 
-- ag
-- ace-flyspellemac
-- auto-complete-c-headers
-- bash-completion
-- clang-format
-- column-enforce-mode
-- company
-- company-c-headers
-- dir-treeview
-- docker
-- docker-cli
-- jinja-mode
-- markdown-mode
-- flymd
-- sudo-edit
+From within emacs, run the following commands
+
+	load-file ~/.emacs.d/install-selected-packages.el
+	package-install-selected-packages
+
+### Use our init.el
+
+Delete the `~/.emacs` file to force emacs to use our `~/emacs.d/init.el`
