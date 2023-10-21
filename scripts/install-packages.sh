@@ -6,6 +6,7 @@ echo "Installing common packages"
 
 # Install various packages I usually want
 sudo dnf install \
+     cifs-utils
      clang-tools-extra \
      cmake \
      code \
@@ -35,5 +36,3 @@ sudo dnf install \
 sudo dnf group install \
      "development tools" \
      -y
-
-
