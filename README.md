@@ -33,17 +33,6 @@ This script is composed of multiple scripts that manage each group of installati
 | [install-emacs](scripts/install-emacs.sh) | Configure eMacs |
 
 
-## Modify .bashrc
-
-We want to modify the `~/.bashrc` file to load our custom scripts.  Add the following:
-
-    # Source custom definitions
-    for f in $HOME/.bashrc.d/*
-    do
-    	. $f
-    done
-
-
 ## Configure Emacs
 
 ### Install packages
