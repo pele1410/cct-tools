@@ -23,7 +23,9 @@
 	flycheck-clang-tidy
 	flymd
 	jinja2-mode
+	magit
 	markdown-mode
+	monky
 	sudo-edit
 	))
 (package-install-selected-packages)
