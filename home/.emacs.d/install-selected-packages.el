@@ -19,6 +19,8 @@
 	dir-treeview
 	docker
 	docker-cli
+	flycheck
+	flycheck-clang-tidy
 	flymd
 	jinja2-mode
 	markdown-mode
