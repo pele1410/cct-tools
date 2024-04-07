@@ -20,6 +20,7 @@ sudo dnf install \
      libstdc++-docs \
      llvm-toolset \
      mercurial \
+     ntfsprogs \
      podman \
      python3-pip \
      qt5-qtbase-devel \
