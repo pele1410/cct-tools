@@ -60,5 +60,3 @@
 
 ;; Disable popups
 (setq use-dialog-box nil)
-
-

@@ -5,7 +5,7 @@
 
 (setq ido-use-filename-at-point 'guess)
 
-;; Set file order for C++ 
+;; Set file order for C++
 (defun my-c++-mode-hook ()
   (setq-local ido-file-extensions-order '("*.C" "*.H" ".pro" ".ccprf" ".prf")))
 
@@ -16,5 +16,3 @@
 (setq ido-ignore-extensions t)
 (setq ido-ignore-directories '(".hg" ".git"))
 (setq ido-ignore-files '(".so"))
-
-

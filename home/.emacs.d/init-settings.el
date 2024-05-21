@@ -38,7 +38,10 @@
 (setq completion-ignored-extensions '())
 
 ;; Enable history mode
-(savehist-mode)
+(use-package savehist
+  :ensure t
+  :init
+  (savehist-mode))
 
 ;; Save place
 (save-place-mode 1)
