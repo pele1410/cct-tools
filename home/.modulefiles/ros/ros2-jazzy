@@ -1,0 +1,5 @@
+#%Module
+
+family ros
+
+source-sh bash /opt/ros/jazzy/setup.bash
