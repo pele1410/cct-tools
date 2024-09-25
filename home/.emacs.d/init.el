@@ -21,7 +21,7 @@
  '(initial-scratch-message nil)
  '(menu-bar-mode nil)
  '(package-selected-packages
-   '(use-package vertico magit git-modes git org rainbow-mode helm company-jedi company-anaconda company-c-headers company-fuzzy company-qml company-ycm company-ycmd company jinja2-mode sudo-edit ycm ov markdown-mode flymd docker-cli docker dir-treeview column-enforce-mode clang-format bash-completion ag ace-flyspell))
+   '(docker-api dockerfile-mode docker-compose-mode use-package vertico magit git-modes git org rainbow-mode helm company-jedi company-anaconda company-c-headers company-fuzzy company-qml company-ycm company-ycmd company jinja2-mode sudo-edit ycm ov markdown-mode flymd docker-cli docker dir-treeview column-enforce-mode clang-format bash-completion ag ace-flyspell))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil)

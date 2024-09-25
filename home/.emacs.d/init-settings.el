@@ -29,6 +29,10 @@
 (add-to-list 'auto-mode-alist '("*\\.md\\'" . gfm-mode))
 ;; xml files
 (add-to-list 'auto-mode-alist '("*\\.xml\\'" . nxml-mode))
+;; Dockerfile files
+(add-to-list 'auto-mode-alist '("Dockerfile" . dockerfile-mode))
+;; docker-compose files
+(add-to-list 'auto-mode-alist '("docker-compose\\.*" . docker-compose-mode))
 
 ;; Ignore stuff
 (setq completion-ignored-extensions
