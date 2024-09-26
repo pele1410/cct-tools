@@ -5,7 +5,7 @@
   (untabify (point-min) (point-max)))
 
 
-;; Set standard indent to 8 for C++
+;; Set standard indent to 8 for C++ and CUDA
 (defun my-c++-mode-hook ()
   (setq-local standard-indent 8)
   (setq-local default-tab-width 8)
@@ -22,6 +22,7 @@
 
 (add-hook 'c-mode-hook 'my-c++-mode-hook)
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
+(add-hook 'cuda-mode-hook 'my-c++-mode-hook)
 
 ;; Set standard indent to 4 for python
 (defun my-python-mode-hook ()
