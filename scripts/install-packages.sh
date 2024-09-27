@@ -6,7 +6,7 @@ echo "Installing common packages"
 
 # Install various packages I usually want
 sudo dnf install \
-     cifs-utils
+     cifs-utils \
      clang-tools-extra \
      cmake \
      code \
