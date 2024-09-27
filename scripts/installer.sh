@@ -4,6 +4,16 @@ set -e
 
 readonly INSTALLER_DIR="$(dirname $(readlink -f ${BASH_SOURCE[0]}))"
 
+# Currently support Fedora and Alma distributions
+if [[ -f /etc/fedora-release ]]; then
+    export FEDORA_INSTALL=1
+elif [[ -f /etc/almalinux-release ]]; then
+    export ALMA_INSTALL=1
+else
+    echo "Unsupported distribution"
+    exit 2
+fi
+
 echo "Running common installers from ${INSTALLER_DIR}"
 
 # Start with adding repositories
