@@ -5,7 +5,7 @@ set -e
 echo "Installing common packages"
 
 # Install various packages I usually want
-sudo dnf install \
+sudo dnf install --skip-broken \
      cifs-utils \
      clang-tools-extra \
      cmake \
@@ -15,7 +15,10 @@ sudo dnf install \
      emacs \
      gh \
      git \
+     gnome-shell-extension-auto-move-windows \
+     gnome-shell-extension-caffeine \
      gnome-shell-extension-system-monitor-applet \
+     gnome-shell-extension-workspace-indicator \
      htop \
      libstdc++-docs \
      llvm-toolset \
@@ -23,9 +26,9 @@ sudo dnf install \
      ntfsprogs \
      podman \
      python3-pip \
-     qt5-qtbase-devel \
      qt5-assistant \
      qt5-doc \
+     qt5-qtbase-devel \
      ruby-devel \
      the_silver_searcher \
      thunderbird \
