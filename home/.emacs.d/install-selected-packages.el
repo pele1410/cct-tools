@@ -19,6 +19,7 @@
 	dir-treeview
 	docker
 	docker-cli
+	dockerfile-mode
 	flycheck
 	flycheck-clang-tidy
 	flymd
@@ -27,5 +28,6 @@
 	markdown-mode
 	monky
 	sudo-edit
+	yaml-mode
 	))
 (package-install-selected-packages)
