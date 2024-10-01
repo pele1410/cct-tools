@@ -23,6 +23,7 @@ sudo dnf install --skip-broken \
      libstdc++-docs \
      llvm-toolset \
      mercurial \
+     npm \
      ntfsprogs \
      podman \
      python3-pip \
