@@ -13,6 +13,7 @@ amend              =
 convert            =
 evolve             =
 graphlog           =
+histedit           =
 hgext.extdiff      =
 hgext.fetch        =
 pager              =
@@ -27,6 +28,7 @@ parent-branch      = ! export REV=$1; export REV=${REV:-.} ; echo hg parent-bran
 ; Add user to blame
 blame              = blame -n -u
 crecord            = commit -i
+he                 = histedit
 last               = diff -c .
 .                  = last
 shelves            = shelve --list
@@ -49,3 +51,6 @@ dl                 = dlog
 pager              = LESS='FRX' less
 ignore             = version, help, update, serve, record
 attend             = annotate, cat, diff, export, glog, log, qdiff, clog, slog, nlog, sglog, dlog, in, out, sl, cl, nl, sgl, dl, last , .
+
+[schemes]
+jay = http://192.168.1.13:8000/
