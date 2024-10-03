@@ -11,6 +11,7 @@ from               = pele1410@gmail.com
 [extensions]
 amend              =
 convert            =
+evolve             =
 graphlog           =
 hgext.extdiff      =
 hgext.fetch        =
