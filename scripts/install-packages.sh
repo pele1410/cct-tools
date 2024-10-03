@@ -37,6 +37,16 @@ sudo dnf install --skip-broken \
      tree \
      -y
 
+# Docker-specific
+sudo dnf install \
+     docker-ce \
+     docker-ce-cli \
+     containerd.io \
+     docker-buildx-plugin \
+     docker-compose-plugin \
+     -y
+
+
 # Install development tools
 sudo dnf group install \
      "development tools" \

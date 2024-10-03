@@ -30,3 +30,6 @@ sh $INSTALLER_DIR/install-gems.sh
 
 # Then emacs packages
 sh $INSTALLER_DIR/install-emacs.sh
+
+# Ensure docker is enabled
+sudo systemctl enable --now docker
