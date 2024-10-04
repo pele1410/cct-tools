@@ -17,6 +17,7 @@ sudo dnf install --skip-broken \
      git \
      gnome-shell-extension-auto-move-windows \
      gnome-shell-extension-caffeine \
+     gnome-shell-extension-launch-new-instance \
      gnome-shell-extension-system-monitor-applet \
      gnome-shell-extension-workspace-indicator \
      htop \
