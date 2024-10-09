@@ -4,14 +4,13 @@
   (interactive)
   (untabify (point-min) (point-max)))
 
-
-;; Set standard indent to 8 for C++ and CUDA
+;; Set standard indent to 2 for C++ and CUDA
 (defun my-c++-mode-hook ()
-  (setq-local standard-indent 8)
-  (setq-local default-tab-width 8)
-  (setq-local tab-width 8)
-  (setq-local c-basic-indent 8)
-  (setq-local c-default-style "linux" c-basic-offset 8)
+  (setq-local standard-indent 2)
+  (setq-local default-tab-width 2)
+  (setq-local tab-width 2)
+  (setq-local c-basic-indent 2)
+  (setq-local c-default-style "linux" c-basic-offset 2)
   (setq-local indent-tabs-mode 1)
   (require 'clang-format)
   (add-hook 'before-save-hook

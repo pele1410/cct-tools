@@ -2,10 +2,18 @@
 
 # Only on terminals that support color
 if test $(tput colors) -ge 8; then
-        ERROR_COLOR="$(tput setab 1)"
-        BRANCH_COLOR="$(tput setaf 0)"
+        ERROR_COLOR="$(tput setab 1)$(tput setaf 0)"
+        BRANCH_COLOR="$(tput setaf 5)"
         STATUS_COLOR="$(tput setaf 2)"
-        NO_COLOR="$(tput sgr0)"
+	CLEAR_COLOR="$(tput sgr0)"
+
+	# Customize "no color" per release
+    	if [[ -f /etc/fedora-release ]]; then
+	        NO_COLOR=
+	else
+	        NO_COLOR="$(tput setaf 3)"
+	fi
+
 else
         ERROR_COLOR=""
         BRANCH_COLOR=""
@@ -21,4 +29,4 @@ END_ESCAPE='\002'
 # Customize the prompt:
 # - Adding the git/hg branch if available
 # - Adding the last command result if not success
-PS1="\$(print_last_failure)[\$(basename \"\$(pwd)\")\$(print_branch)\$(repo_status)]\$ "
+PS1="\$(print_last_failure)$(print_no_color)[\$(basename \"\$(pwd)\")\$(print_branch)\$(repo_status)$(print_no_color)]\$ "

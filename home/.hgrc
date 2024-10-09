@@ -1,12 +1,11 @@
 [ui]
-username           = Christopher Thompson <pele1410@gmail.com>
+username           = Christopher Thompson <cthompson@metalsharkboats.com>
 merge              = meld
 interface          = curses
 ssh                = ssh -C -i ~/.ssh/id_rsa
-ignore             = ~/.hgignore
 
 [email]
-from               = pele1410@gmail.com
+from               = cthompson@metalsharkboats.com
 
 [extensions]
 amend              =
@@ -19,38 +18,47 @@ hgext.fetch        =
 pager              =
 progress           =
 purge              =
+rebase             =
 record             =
+remotenames        =
 shelve             =
 strip              =
 
 [alias]
-parent-branch      = ! export REV=$1; export REV=${REV:-.} ; echo hg parent-branch ${REV}; $HG log -r "parents(min(branch('${REV}')))"
-; Add user to blame
+; Visualizations
 blame              = blame -n -u
-crecord            = commit -i
-he                 = histedit
 last               = diff -c .
-.                  = last
-shelves            = shelve --list
-ar                 = addremove
+parent-branch      = ! export REV=$1; export REV=${REV:-.} ; $HG log -r "parents(min(branch('${REV}')))"  --template="{branch}"
+clog               = glog -v --style ~/.hg.d/clog.style
+slog               = glog -v --style ~/.hg.d/slog.style
+nlog               = glog --style ~/.hg.d/nlog.style
+sglog              = glog --style ~/.hg.d/sglog.style
+dlog               = glog --style ~/.hg.d/dlog.style
+; Modifiers
+crecord            = commit -i
 describe           = log -r . --template "{latesttag}{sub('^-0-.*', '', '-{latesttagdistance}-m{node|short}')}\n"
 gethash            = log -r . --template="Commit: {rev}\nAuthor: {author}\nAge: {date|age}\nDescription: {desc}\nManifest Hash: {node}\n"
+merge-parent       = ! export PARENT_BRANCH=$($HG parent-branch); $HG merge $PARENT_BRANCH && $HG commit -m "Merge from parent-branch $PARENT_BRANCH"
 nuke               = !$HG revert --all; $HG purge --all; $HG purge --dirs
-clog               = glog -v --style ~/.hg.d/clog.style
+pup                = !$HG pull && $HG up
+; Lazy
+.                  = last
+ar                 = addremove
 cl                 = clog
-slog               = glog -v --style ~/.hg.d/slog.style
-sl                 = slog
-nlog               = glog --style ~/.hg.d/nlog.style
-nl                 = nlog
-sglog              = glog --style ~/.hg.d/sglog.style
-sgl                = sglog
-dlog               = glog --style ~/.hg.d/dlog.style
 dl                 = dlog
+he                 = histedit
+nl                 = nlog
+sgl                = sglog
+shelves            = shelve --list
+sl                 = slog
 
 [pager]
 pager              = LESS='FRX' less
 ignore             = version, help, update, serve, record
-attend             = annotate, cat, diff, export, glog, log, qdiff, clog, slog, nlog, sglog, dlog, in, out, sl, cl, nl, sgl, dl, last , .
+attend             = annotate, blame, blame, cat, diff, export, glog, log, qdiff, clog, slog, nlog, sglog, dlog, in, out, sl, cl, nl, sgl, dl, last , .
 
-[schemes]
-jay = http://192.168.1.13:8000/
+[phases]
+publish = false
+
+[subrepos]
+git:allowed=true

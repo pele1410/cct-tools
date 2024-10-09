@@ -5,9 +5,14 @@ print_color ()
         printf "${START_ESCAPE}${1}${END_ESCAPE}"
 }
 
+print_no_color ()
+{
+        print_color ${NO_COLOR}
+}
+
 clear_colors ()
 {
-        printf "${START_ESCAPE}${NO_COLOR}${END_ESCAPE}"
+        printf "${START_ESCAPE}${CLEAR_COLOR}${END_ESCAPE}"
 }
 
 git_branch ()
@@ -154,4 +159,9 @@ print_last_failure ()
         else
             echo ""
         fi
+}
+
+function docker-remove-dangling
+{
+    docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
 }

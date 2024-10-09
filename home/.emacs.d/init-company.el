@@ -1,5 +1,6 @@
 (require 'company)
 (require 'company-c-headers)
+(require 'company-cmake)
 
 ;; Enable company mode for completion
 (add-hook 'after-init-hook 'global-company-mode)

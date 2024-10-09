@@ -1,7 +1,10 @@
 #!/bin/bash
 
-function task()
-{
-    go-task $@
-}
+if command -v go-task &> /dev/null; then
+    function task()
+    {
+        go-task $@
+    }
+fi
+
 eval "$(task --completion bash)"

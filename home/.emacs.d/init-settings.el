@@ -35,6 +35,8 @@
 (add-to-list 'auto-mode-alist '("docker-compose\\.*" . docker-compose-mode))
 ;; CUDA files
 (add-to-list 'auto-mode-alist '("*\\.cu\\'" . cuda-mode))
+;; CMake files
+(add-to-list 'auto-mode-alist '("CMakeLists.txt" . cmake-mode))
 
 ;; Ignore stuff
 (setq completion-ignored-extensions
