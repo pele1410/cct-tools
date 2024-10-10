@@ -16,8 +16,7 @@
   (add-hook 'before-save-hook
             'clang-format-buffer nil)
   (add-hook 'before-save-hook
-            'untabify-buffer nil)
-(defvaralias 'c-basic-offset 'tab-width))
+            'untabify-buffer nil))
 
 (add-hook 'c-mode-hook 'my-c++-mode-hook)
 (add-hook 'c++-mode-hook 'my-c++-mode-hook)
@@ -51,3 +50,4 @@
 
 ;; Ask for a newline at the end of the file
 (setq-local require-final-newline 'ask)
+
