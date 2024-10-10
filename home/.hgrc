@@ -28,7 +28,8 @@ strip              =
 ; Visualizations
 blame              = blame -n -u
 last               = diff -c .
-parent-branch      = ! export REV=$1; export REV=${REV:-.} ; $HG log -r "parents(min(branch('${REV}')))"  --template="{branch}"
+parent-branch      = ! export REV=$1; export REV=${REV:-.} ; $HG log -r "parents(min(branch('${REV}')))"  --template="{branch}\n"
+branch-first-commit = ! export REV=$1; export REV=${REV:-.} ; $HG id -r "min(branch('${REV}'))" --template="{node}\n"
 clog               = glog -v --style ~/.hg.d/clog.style
 slog               = glog -v --style ~/.hg.d/slog.style
 nlog               = glog --style ~/.hg.d/nlog.style
@@ -41,6 +42,7 @@ gethash            = log -r . --template="Commit: {rev}\nAuthor: {author}\nAge: 
 merge-parent       = ! export PARENT_BRANCH=$($HG parent-branch); $HG merge $PARENT_BRANCH && $HG commit -m "Merge from parent-branch $PARENT_BRANCH"
 nuke               = !$HG revert --all; $HG purge --all; $HG purge --dirs
 pup                = !$HG pull && $HG up
+rebase-branch      = ! $HG rebase -s $($HG branch-first-commit) -d $($HG parent-branch) --keepbranches
 ; Lazy
 .                  = last
 ar                 = addremove
