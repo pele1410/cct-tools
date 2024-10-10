@@ -32,6 +32,7 @@ sudo dnf install --skip-broken \
      qt5-doc \
      qt5-qtbase-devel \
      ruby-devel \
+     shfmt \
      the_silver_searcher \
      thunderbird \
      tmux \
