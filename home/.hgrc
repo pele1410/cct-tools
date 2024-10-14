@@ -2,7 +2,7 @@
 username           = Christopher Thompson <cthompson@metalsharkboats.com>
 merge              = meld
 interface          = curses
-ssh                = ssh -C -i ~/.ssh/id_rsa
+ssh                = ssh -C -i ~/.ssh/id_heptapod -p 2424
 
 [email]
 from               = cthompson@metalsharkboats.com
@@ -64,3 +64,6 @@ publish = false
 
 [subrepos]
 git:allowed=true
+
+# Include personal tokens
+%include ~/.hg.d/auth.rc
