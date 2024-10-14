@@ -27,7 +27,6 @@ git_branch ()
         fi
 }
 
-
 mercurial_branch ()
 {
         # Mercurial repo?
@@ -35,6 +34,18 @@ mercurial_branch ()
 
         if [[ $? == 0 ]]; then
                 echo $(hg branch | awk '{print $NF}')
+        else
+                return 1
+        fi
+}
+
+mercurial_topic ()
+{
+        # Mercurial repo?
+        $(hg topic -T "{topic}" &> /dev/null)
+
+        if [[ $? == 0 ]]; then
+                echo $(hg topic -T "{topic}" | awk '{print $NF}')
         else
                 return 1
         fi
@@ -140,7 +151,10 @@ print_branch ()
 {
         foo=$(git_branch)
         if [[ $? -ne 0 ]]; then
-                foo=$(mercurial_branch)
+       	        foo=$(mercurial_topic)
+	        if [[ $? -ne 0 ]]; then
+	                foo=$(mercurial_branch)
+	        fi
         fi
 
         if [[ -z "${foo}" ]]; then
