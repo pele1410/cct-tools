@@ -1,6 +1,6 @@
-changeset = '\033[0;31m[{phase}]\033[0m \033[0;34m{rev}\033[0m:\033[0;32m{node|short}\033[0m{branches}{bookmarks}{tags} \033[1;30m({date|shortdate} by {author|person})\033[0m\n\n{desc|strip}\n\n'
+changeset = '\033[0;31m[{phase}]\033[0m \033[0;34m{rev}\033[0m:\033[0;32m{node|short}\033[0m{branches}{topics}{bookmarks}{tags} \033[1;30m({date|shortdate} by {author|person})\033[0m\n\n{desc|strip}\n\n'
 
-changeset_verbose = '\033[0;31m[{phase}]\033[0m \033[0;34m{rev}\033[0m:\033[0;32m{node|short}\033[0m{branches}{bookmarks}{tags} \033[1;30m({date|shortdate} by {author|person})\033[0m\n\n{desc|strip}\n\n{file_mods}{file_adds}{file_dels}\n\n'
+changeset_verbose = '\033[0;31m[{phase}]\033[0m \033[0;34m{rev}\033[0m:\033[0;32m{node|short}\033[0m{branches}{topics}{bookmarks}{tags} \033[1;30m({date|shortdate} by {author|person})\033[0m\n\n{desc|strip}\n\n{file_mods}{file_adds}{file_dels}\n\n'
 
 start_file_adds = ''
 file_add = '\033[0;32mA {file_add}\033[0m\n'
@@ -24,3 +24,6 @@ last_bookmark = '\033[0;32m[{bookmark}]\033[0m'
 start_tags = ' '
 tag = '\033[0;33m{tag}\033[0m, '
 last_tag = '\033[0;33m{tag}\033[0m'
+
+start_topics = ' '
+topic = '\033[0;35m{topic}\033[0m'

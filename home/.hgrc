@@ -2,7 +2,7 @@
 username           = Christopher Thompson <cthompson@metalsharkboats.com>
 merge              = meld
 interface          = curses
-ssh                = ssh -C -i ~/.ssh/id_heptapod -p 2424
+ssh                = ssh -C
 
 [email]
 from               = cthompson@metalsharkboats.com
@@ -23,6 +23,7 @@ record             =
 remotenames        =
 shelve             =
 strip              =
+topic              =
 
 [alias]
 ; Visualizations
@@ -48,6 +49,7 @@ rebase-branch      = ! $HG rebase -s $($HG branch-first-commit) -d $($HG parent-
 ar                 = addremove
 cl                 = clog
 dl                 = dlog
+down               = up .^
 he                 = histedit
 nl                 = nlog
 sgl                = sglog
