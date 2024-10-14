@@ -67,5 +67,8 @@ publish = false
 [subrepos]
 git:allowed=true
 
+[experimental]
+topic-mode = enforce
+
 # Include personal tokens
 %include ~/.hg.d/auth.rc
