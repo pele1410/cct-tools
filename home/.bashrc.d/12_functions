@@ -42,10 +42,10 @@ mercurial_branch ()
 mercurial_topic ()
 {
         # Mercurial repo?
-        $(hg topic -T "{topic}" &> /dev/null)
+        $(hg topic &> /dev/null)
 
         if [[ $? == 0 ]]; then
-                echo $(hg topic -T "{topic}" | awk '{print $NF}')
+                echo $(hg topics | grep \* | awk -e '{print $2}')
         else
                 return 1
         fi
