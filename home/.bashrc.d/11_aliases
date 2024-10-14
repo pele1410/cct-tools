@@ -21,3 +21,6 @@ alias cct-make-install='make -sj8 && make install -sj8'
 
 # Use emacs server
 alias emacs='emacsclient -c -a emacs -q &'
+
+# User trash instead of rm
+alias rm='trash'

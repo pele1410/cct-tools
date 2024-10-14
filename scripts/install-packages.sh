@@ -36,6 +36,7 @@ sudo dnf install --skip-broken \
      the_silver_searcher \
      thunderbird \
      tmux \
+     trash-cli \
      tree \
      -y
 
