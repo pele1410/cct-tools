@@ -33,7 +33,7 @@ mercurial_branch ()
         $(hg branch &> /dev/null)
 
         if [[ $? == 0 ]]; then
-                echo $(hg branch | awk '{print $NF}')
+                echo $(hg log -r . -T "{branch}")
         else
                 return 1
         fi
@@ -42,10 +42,10 @@ mercurial_branch ()
 mercurial_topic ()
 {
         # Mercurial repo?
-        $(hg topic &> /dev/null)
+        $(hg log -r .  -T "{topic}" &> /dev/null)
 
         if [[ $? == 0 ]]; then
-                echo $(hg topics | grep \* | awk -e '{print $2}')
+                echo $(hg log -r . -T "{topic}")
         else
                 return 1
         fi
@@ -129,9 +129,9 @@ mercurial_status()
 repo_status ()
 {
         b=$(git_branch)
-        if [[ $? -ne 0 ]]; then
+        if [[ -z "$b" ]]; then
             b=$(mercurial_branch)
-            if [[ $? -ne 0 ]]; then
+            if [[ -z "$b" ]]; then
                     return 0
             fi
 
@@ -150,9 +150,9 @@ repo_status ()
 print_branch ()
 {
         foo=$(git_branch)
-        if [[ $? -ne 0 ]]; then
+        if [[ -z "$foo" ]]; then
        	        foo=$(mercurial_topic)
-	        if [[ $? -ne 0 ]]; then
+	        if [[ -z "$foo" ]]; then
 	                foo=$(mercurial_branch)
 	        fi
         fi
