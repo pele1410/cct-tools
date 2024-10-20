@@ -22,5 +22,11 @@ alias cct-make-install='make -sj8 && make install -sj8'
 # Use emacs server
 alias emacs='emacsclient -c -a emacs -q &'
 
-# User trash instead of rm
+# Use trash instead of rm
 alias rm='trash'
+
+# Bounce resolve.conf after killing cisco VPN connection
+alias cct-resolv='sudo systemctl restart systemd-resolved.service'
+
+# Fix whatever is causing nvidia to crash
+alias cct-nvidia='sudo dnf reinstall -y dkms-nvidia xorg-x11-nvidia'
