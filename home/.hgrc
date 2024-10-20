@@ -15,6 +15,7 @@ graphlog           =
 histedit           =
 hgext.extdiff      =
 hgext.fetch        =
+hgext.schemes      =
 pager              =
 progress           =
 purge              =
@@ -74,6 +75,9 @@ git:allowed=true
 
 [experimental]
 topic-mode = enforce
+
+[schemes]
+heptapod = ssh://git@heptapod.metalshark.local/devel
 
 # Include personal tokens
 %include ~/.hg.d/auth.rc
