@@ -1,181 +1,220 @@
 #!/usr/bin/bash
 
-print_color ()
+function print_color
 {
-        printf "${START_ESCAPE}${1}${END_ESCAPE}"
+    printf "${START_ESCAPE}${1}${END_ESCAPE}"
 }
 
-print_no_color ()
+function print_no_color
 {
-        print_color ${NO_COLOR}
+    print_color ${NO_COLOR}
 }
 
-clear_colors ()
+function clear_colors
 {
-        printf "${START_ESCAPE}${CLEAR_COLOR}${END_ESCAPE}"
+    printf "${START_ESCAPE}${CLEAR_COLOR}${END_ESCAPE}"
 }
 
-git_branch ()
+function git_branch
 {
-        # Git repo?
-        $(git branch &> /dev/null)
+    # Git repo?
+    $(git branch &> /dev/null)
 
-        if [[ $? == 0 ]]; then
-                echo $(git branch | grep \* | awk '{print $NF}')
-        else
-                return 1
-        fi
+    if [[ $? == 0 ]]; then
+        echo $(git branch | grep \* | awk '{print $NF}')
+    else
+        return 1
+    fi
 }
 
-mercurial_branch ()
+function mercurial_branch
 {
-        # Mercurial repo?
-        $(hg branch &> /dev/null)
+    # Mercurial repo?
+    $(hg branch &> /dev/null)
 
-        if [[ $? == 0 ]]; then
-                echo $(hg log -r . -T "{branch}")
-        else
-                return 1
-        fi
+    if [[ $? == 0 ]]; then
+        echo $(hg log -r . -T "{branch}")
+    else
+        return 1
+    fi
 }
 
-mercurial_topic ()
+function mercurial_topic
 {
-        # Mercurial repo?
-        $(hg log -r .  -T "{topic}" &> /dev/null)
+    # Mercurial repo?
+    $(hg log -r .  -T "{topic}" &> /dev/null)
 
-        if [[ $? == 0 ]]; then
-                echo $(hg log -r . -T "{topic}")
-        else
-                return 1
-        fi
+    if [[ $? == 0 ]]; then
+        echo $(hg log -r . -T "{topic}")
+    else
+        return 1
+    fi
 }
 
-git_status()
+function git_status
 {
-        declare -i added=0;
-        declare -i deleted=0;
-        declare -i modified=0;
-        declare -i untracked=0;
+    declare -i added=0;
+    declare -i deleted=0;
+    declare -i modified=0;
+    declare -i untracked=0;
 
-        for i in $(git --no-optional-locks status -s -uall)
-                do
-                    case $i in
-                        'A')
-                            added+=1
-                            ;;
-                        'D')
-                            deleted+=1
-                            ;;
-                        'M')
-                            modified+=1
-                            ;;
-                        '??')
-                            untracked+=1
-                            ;;
+    for i in $(git --no-optional-locks status -s -uall)
+        do
+            case $i in
+            'A')
+                added+=1
+                ;;
+            'D')
+                deleted+=1
+                ;;
+            'M')
+                modified+=1
+                ;;
+            '??')
+                untracked+=1
+                ;;
 
-                    esac
-        done
+            esac
+    done
 
-        output=""
-        [ $added -gt 0 ] && output+="${added}A"
-        [ $modified -gt 0 ] && output+=" ${modified}M"
-        [ $deleted -gt 0 ] && output+=" ${deleted}D"
-        [ $untracked -gt 0 ] && output+=" ${untracked}?"
+    output=""
+    [ $added -gt 0 ] && output+="${added}A"
+    [ $modified -gt 0 ] && output+=" ${modified}M"
+    [ $deleted -gt 0 ] && output+=" ${deleted}D"
+    [ $untracked -gt 0 ] && output+=" ${untracked}?"
 
-        echo $output
+    echo $output
 }
 
-mercurial_status()
+function mercurial_status
 {
-        declare -i added=0;
-        declare -i deleted=0;
-        declare -i modified=0;
-        declare -i removed=0;
-        declare -i untracked=0;
+    declare -i added=0;
+    declare -i deleted=0;
+    declare -i modified=0;
+    declare -i removed=0;
+    declare -i untracked=0;
 
-        for i in $(hg status -admru)
-                do
-                    case $i in
-                        'A')
-                            added+=1
-                            ;;
-                        '!')
-                            deleted+=1
-                            ;;
-                        'M')
-                            modified+=1
-                            ;;
-                        'R')
-                            removed+=1
-                            ;;
-                        '?')
-                            untracked+=1
-                            ;;
+    for i in $(hg status -admru)
+        do
+            case $i in
+            'A')
+                added+=1
+                ;;
+            '!')
+                deleted+=1
+                ;;
+            'M')
+                modified+=1
+                ;;
+            'R')
+                removed+=1
+                ;;
+            '?')
+                untracked+=1
+                ;;
 
-                    esac
-        done
+            esac
+    done
 
-        output=""
-        [ $added -gt 0 ] && output+="${added}A"
-        [ $modified -gt 0 ] && output+=" ${modified}M"
-        [ $deleted -gt 0 ] && output+=" ${deleted}D"
-        [ $removed -gt 0 ] && output+=" ${removed}R"
-        [ $untracked -gt 0 ] && output+=" ${untracked}?"
+    output=""
+    [ $added -gt 0 ] && output+="${added}A"
+    [ $modified -gt 0 ] && output+=" ${modified}M"
+    [ $deleted -gt 0 ] && output+=" ${deleted}D"
+    [ $removed -gt 0 ] && output+=" ${removed}R"
+    [ $untracked -gt 0 ] && output+=" ${untracked}?"
 
-        echo $output
+    echo $output
 }
 
-repo_status ()
+function repo_status
 {
-        b=$(git_branch)
+    b=$(git_branch)
+    if [[ -z "$b" ]]; then
+        b=$(mercurial_branch)
         if [[ -z "$b" ]]; then
-            b=$(mercurial_branch)
-            if [[ -z "$b" ]]; then
-                    return 0
-            fi
-
-            status=$(mercurial_status)
-        else
-            status=$(git_status)
-        fi
-
-        if [ -z "$status" ]; then
             return 0
         fi
 
-        printf "$(print_color ${STATUS_COLOR}){${status}}$(clear_colors)"
+        status=$(mercurial_status)
+    else
+        status=$(git_status)
+    fi
+
+    if [ -z "$status" ]; then
+        return 0
+    fi
+
+    printf "$(print_color ${STATUS_COLOR}){${status}}$(clear_colors)"
 }
 
-print_branch ()
+function print_branch
 {
-        foo=$(git_branch)
+    foo=$(git_branch)
+    if [[ -z "$foo" ]]; then
+        foo=$(mercurial_topic)
         if [[ -z "$foo" ]]; then
-       	        foo=$(mercurial_topic)
-	        if [[ -z "$foo" ]]; then
-	                foo=$(mercurial_branch)
-	        fi
+            foo=$(mercurial_branch)
         fi
+    fi
 
-        if [[ -z "${foo}" ]]; then
-                return
-        fi
+    if [[ -z "${foo}" ]]; then
+        return
+    fi
 
-        printf " $(print_color ${BRANCH_COLOR})(${foo})$(clear_colors)"
+    printf " $(print_color ${BRANCH_COLOR})(${foo})$(clear_colors)"
 }
 
 # If the last command was not a success, print the result value
-print_last_failure ()
+function print_last_failure
 {
-        local result=$?
-        if [[ ${result} != 0 ]]; then
-                printf "$(print_color ${ERROR_COLOR})[${result}]$(clear_colors)"
-        else
-            echo ""
-        fi
+    local result=$?
+    if [[ ${result} != 0 ]]; then
+        printf "$(print_color ${ERROR_COLOR})[${result}]$(clear_colors)"
+    else
+        echo ""
+    fi
 }
 
+# Remove any docker images that are not used
 function docker-remove-dangling
 {
     docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
+}
+
+
+function git_root
+{
+    # Git repo?
+    $(git rev-parse --show-toplevel &> /dev/null)
+
+    if [[ $? == 0 ]]; then
+        echo $(git rev-parse --show-toplevel)
+    else
+        return 1
+    fi
+}
+
+function mercurial_root
+{
+    # Mercurial repo?
+    $(hg root &> /dev/null)
+
+    if [[ $? == 0 ]]; then
+        echo $(hg root)
+    else
+        return 1
+    fi
+}
+
+# Change to the root of the current repository
+function cdr
+{
+    foo=$(git_root)
+    if [[ -z "$foo" ]]; then
+        foo=$(mercurial_root)
+    fi
+
+    if [[ "${foo}" ]]; then
+        cd ${foo};
+    fi
 }
