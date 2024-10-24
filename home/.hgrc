@@ -49,18 +49,18 @@ rebase-branch      = ! $HG rebase -s $($HG branch-first-commit) -d $($HG parent-
 .                  = last
 ar                 = addremove
 cl                 = clog
-clt                = !$HG cl -r 'topic('$($HG log -r . -T "{topic}")')'
+clt                = !$HG cl -r 'topic(.)'
 dl                 = dlog
-dlt                = !$HG dl -r 'topic('$($HG log -r . -T "{topic}")')'
+dlt                = !$HG dl -r 'topic(.)'
 down               = up .^
 he                 = histedit
 nl                 = nlog
-nlt                = !$HG nl -r 'topic('$($HG topic -r . -T "{topic}")')'
+nlt                = !$HG nl -r 'topic(.)'
 sgl                = sglog
-sglt               = !$HG sgl -r 'topic('$($HG log -r . -T "{topic}")')'
+sglt               = !$HG sgl -r 'topic(.)'
 shelves            = shelve --list
 sl                 = slog
-slt                = !$HG sl -r 'topic('$($HG log -r . -T "{topic}")')'
+slt                = !$HG sl -r 'topic(.)'
 
 [pager]
 pager              = LESS='FRX' less
