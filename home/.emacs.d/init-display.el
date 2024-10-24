@@ -1,9 +1,9 @@
 ;; Highlight current line
 (global-hl-line-mode 1)
 
-; Set 95 character width by default
+; Set 100 character width by default
 (setq default-frame-alist
-      '((width . 95) (height . 40)))
+      '((width . 100) (height . 40)))
 
 ;; Show line-number in the mode line
 (line-number-mode 1)
@@ -36,8 +36,7 @@
 
 ;; Set column enforcement
 (global-column-enforce-mode t)
-(setq column-enforce-column 95)
-;;(setq column-enforce-face "red")
+(setq column-enforce-column 100)
 
 ;; Enable higlghting of ag results
 (setq ag-highlight-search 1)
