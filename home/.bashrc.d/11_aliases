@@ -30,3 +30,6 @@ alias cct-resolv='sudo systemctl restart systemd-resolved.service'
 
 # Fix whatever is causing nvidia to crash
 alias cct-nvidia='sudo dnf reinstall -y dkms-nvidia xorg-x11-nvidia'
+
+# Nuke all docker everything
+alias cct-docker-nuke='docker system prune --all --force'
