@@ -77,7 +77,7 @@ git:allowed=true
 topic-mode = enforce
 
 [schemes]
-heptapod = ssh://git@heptapod.metalshark.local/devel
+heptapod = ssh://git@heptapod.metalshark.local:2424/devel
 
 # Include personal tokens
 %include ~/.hg.d/auth.rc
