@@ -23,13 +23,16 @@
 
 ;; I do not know why having this 'before-save-hook added as part
 ;; of the my-c++-mode-hook function does not work.  To simply
-;; get it working just add individually for each mnode
-(add-hook 'c-mode-hook (add-hook 'before-save-hook
-            'clang-format-buffer))
-(add-hook 'c++-mode-hook  (add-hook 'before-save-hook
-            'clang-format-buffer))
-(add-hook 'cuda-mode-hook (add-hook 'before-save-hook
-            'clang-format-buffer))
+;; get it working just add individually for each mode
+(add-hook 'c-mode-hook
+          (lambda () (add-hook 'before-save-hook
+            'clang-format-buffer nil 'make-it-local)))
+(add-hook 'c++-mode-hook
+          (lambda () (add-hook 'before-save-hook
+            'clang-format-buffer nil 'make-it-local)))
+(add-hook 'cuda-mode-hook
+          (lambda () (add-hook 'before-save-hook
+            'clang-format-buffer nil 'make-it-local)))
 
 ;; Set standard indent to 4 for python
 (defun my-python-mode-hook ()
