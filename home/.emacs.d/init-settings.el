@@ -42,8 +42,7 @@
 (setq completion-ignored-extensions
     (append completion-ignored-extensions
         (quote
-        ("~" ".a" ".so" ".o"))))
-(setq completion-ignored-extensions '())
+        ("~" ".a" ".so" ".o" ".#"))))
 
 ;; Enable history mode
 (use-package savehist

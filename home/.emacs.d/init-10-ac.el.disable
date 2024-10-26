@@ -9,11 +9,9 @@
 
 ;; Source lists
 (add-to-list 'ac-sources 'ac-source-c-headers)
+
 (setq achead:include-directories
- (append '("/usr/include/c++/8"
-           "/usr/include/c++/8/x86_64-redhat-linux"
-           "/usr/include/c++/8/backward"
-           "/usr/lib/gcc/x86_64-redhat-linux/8/include")
+ (append '("/usr/include/c++/14")
            achead:include-directories))
 
 ;; Do not start automatically

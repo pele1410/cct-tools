@@ -1,2 +1,3 @@
-tmuxp
 hg-evolve
+mypy
+tmuxp

@@ -1,3 +1,7 @@
+(require 'flycheck)
+(require 'flycheck-clang-analyzer)
+(require 'flycheck-yamllint)
+
 ;; Flycheck configuration using clang-tidy
 
 (eval-after-load 'flycheck

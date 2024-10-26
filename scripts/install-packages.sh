@@ -6,6 +6,7 @@ echo "Installing common packages"
 
 # Install various packages I usually want
 sudo dnf install --skip-broken \
+     blackcifs-utils \
      cifs-utils \
      clang-tools-extra \
      cmake \
@@ -13,6 +14,7 @@ sudo dnf install --skip-broken \
      colordiff \
      discount \
      emacs \
+     emacs-python-environment \
      gh \
      git \
      gnome-shell-extension-auto-move-windows \
@@ -28,6 +30,7 @@ sudo dnf install --skip-broken \
      ntfsprogs \
      podman \
      python3-pip \
+     pylint \
      qt5-assistant \
      qt5-doc \
      qt5-qtbase-devel \
