@@ -79,5 +79,8 @@ topic-mode = enforce
 [schemes]
 heptapod = ssh://git@heptapod.metalshark.local:2424/devel
 
+[diff]
+git = 1
+
 # Include personal tokens
 %include ~/.hg.d/auth.rc
