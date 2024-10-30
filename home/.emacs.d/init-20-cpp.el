@@ -12,7 +12,7 @@
   (setq-local indent-tabs-mode 1)
 ;;  (add-to-list 'company-backends 'company-c-headers)
 ;;  (set 'company-clang-arguments (list "-std=c++20"))
-  (local-set-key (kbd "C-M-]") 'clang-format-buffer))
+  (local-set-key (kbd "C-M-]") '(clang-format-buffer assume-file-name)))
 
 ;; Catch all the possible C modes
 (add-hook 'cc-mode-hook 'my-cpp-mode-hook)
@@ -25,13 +25,13 @@
 ;; get it working just add individually for each mode
 (add-hook 'c-mode-hook
           (lambda () (add-hook 'before-save-hook
-                               'clang-format-buffer nil 'make-it-local)))
+                               '(clang-format-buffer assume-file-name) nil 'make-it-local)))
 (add-hook 'cc-mode-hook
           (lambda () (add-hook 'before-save-hook
-                               'clang-format-buffer nil 'make-it-local)))
+                               '(clang-format-buffer assume-file-name) nil 'make-it-local)))
 (add-hook 'c++-mode-hook
           (lambda () (add-hook 'before-save-hook
-                               'clang-format-buffer nil 'make-it-local)))
+                               '(clang-format-buffer assume-file-name) nil 'make-it-local)))
 (add-hook 'cuda-mode-hook
           (lambda () (add-hook 'before-save-hook
                                'clang-format-buffer nil 'make-it-local)))
