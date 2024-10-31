@@ -13,6 +13,9 @@ alias po='popd'
 alias qhg='hg'
 alias qgit='git'
 
+# Lazy mercurial aliases
+alias hgc='hg commit'
+
 # Clear any core files found in any subdir
 alias cct-clear-cores='find . -regextype posix-extended -regex ".*core\.[0-9]+" -exec rm {} \;'
 
@@ -33,3 +36,6 @@ alias cct-nvidia='sudo dnf reinstall -y dkms-nvidia xorg-x11-nvidia'
 
 # Nuke all docker everything
 alias cct-docker-nuke='docker system prune --all --force'
+
+# Fix google chrome lock problem
+alias cct-chrome-fix='/bin/rm $HOME/.config/google-chrome/SingletonLock'
