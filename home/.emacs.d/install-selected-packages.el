@@ -17,17 +17,25 @@
         company
         company-ansible
         company-c-headers
+        company-fuzzy
+        company-jedi
+        company-shell
         dir-treeview
         docker
         docker-cli
         dockerfile-mode
         flycheck
+        flycheck-clang-analyzer
         flycheck-clang-tidy
+        flycheck-projectile
+        flycheck-pycheckers
+        flycheck-yamllint
         flymd
         jedi
         jinja2-mode
         magit
         projectile
+        python-black
         sudo-edit
         tramp
         yaml-mode
