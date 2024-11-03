@@ -31,6 +31,7 @@ This script is composed of multiple scripts that manage each group of installati
 | [install-packages](scripts/install-packages.sh) | Installs all the packages I commonly use |
 | [install-python](scripts/install-python.sh) | Installs python (2 and 3) packages |
 | [install-emacs](scripts/install-emacs.sh) | Configure eMacs |
+| [install-tmux](scripts/install-tmux.sh) | Configure Tmux |
 
 
 ## Configure Emacs
@@ -39,8 +40,8 @@ This script is composed of multiple scripts that manage each group of installati
 
 From within emacs, run the following commands
 
-	load-file ~/.emacs.d/install-selected-packages.el
-	package-install-selected-packages
+    load-file ~/.emacs.d/install-selected-packages.el
+    package-install-selected-packages
 
 ### Use our init.el
 
