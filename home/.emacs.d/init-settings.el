@@ -7,8 +7,14 @@
 ;; Disable the stupid audible bell
 (setq ring-bell-function `ignore)
 
+;; Auto save configurations
 ;; Don't keep auto-save files
 (setq delete-auto-save-files t)
+;; Save to /tmp
+(setq auto-save-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
+(setq lock-file-name-transforms
+      `((".*" ,temporary-file-directory t)))
 
 ;; Support Wheel Mouse Scrolling
 (mouse-wheel-mode 1)
