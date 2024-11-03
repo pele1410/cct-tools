@@ -57,3 +57,7 @@
 (setq recentf-max-saved-items 100
       recentf-exclude '("/tmp/" ".*~"))
 (recentf-mode)
+
+;; Enable dir-locals on remote files
+;; This allows for docker to work
+(setq enable-remote-dir-locals t)
