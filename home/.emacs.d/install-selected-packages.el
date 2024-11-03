@@ -15,6 +15,7 @@
         clang-format
         column-enforce-mode
         company
+        company-ansible
         company-c-headers
         dir-treeview
         docker
@@ -26,8 +27,7 @@
         jedi
         jinja2-mode
         magit
-        markdown-mode
-        monky
+        projectile
         sudo-edit
         tramp
         yaml-mode
