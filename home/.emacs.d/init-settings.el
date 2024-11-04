@@ -17,10 +17,10 @@
       `((".*" ,temporary-file-directory t)))
 
 ;; Support Wheel Mouse Scrolling
-(setq mouse-wheel-mode 1)
+(mouse-wheel-mode 1)
 
 ;; Delete the selected region
-(setq delete-selection-mode 1)
+(delete-selection-mode 1)
 
 ;; Auto update buffers changed on disk
 (setq global-auto-revert-mode 1)
