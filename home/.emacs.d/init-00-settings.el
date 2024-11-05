@@ -22,6 +22,9 @@
 ;; Delete the selected region
 (delete-selection-mode 1)
 
+;; Always follow symlinks and do not prompt
+(setq vc-follow-symlinks t)
+
 ;; Auto update buffers changed on disk
 (setq global-auto-revert-mode 1)
 
