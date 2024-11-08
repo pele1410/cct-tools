@@ -1,6 +1,6 @@
 (require 'python-black)
 (require 'flycheck-pycheckers)
-(require 'company-jedi)
+;;(require 'company-jedi)
 
 (with-eval-after-load 'flycheck
   (add-hook 'flycheck-mode-hook #'flycheck-pycheckers-setup))
@@ -11,8 +11,8 @@
   (setq-local default-tab-width 4)
   (setq-local tab-width 4)
   (setq-local indent-tabs-mode 1)
-  (add-to-list 'company-backends 'company-jedi)
-  (local-set-key (kbd "C-M-]") 'python-black-buffer))
+  (local-set-key (kbd "C-M-]") 'apheleia-format-buffer)
+  )
 
 (add-hook 'python-mode-hook 'my-python-mode-hook)
 
@@ -21,4 +21,4 @@
 ;; get it working just add individually for each mode
 (add-hook 'python-mode-hook
           (lambda () (add-hook 'before-save-hook
-                               'python-black-buffer nil 'make-it-local)))
+                               'apheleia-format-buffer nil 'make-it-local)))

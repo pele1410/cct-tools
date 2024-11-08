@@ -1,3 +1,0 @@
-(require 'apheleia)
-
-(setq apheleia-remote-algorithm 'remote)

@@ -10,6 +10,7 @@
       '(
         ace-flyspell
         ag
+        apheleia
         auto-complete-c-headers
         bash-completion
         clang-format
