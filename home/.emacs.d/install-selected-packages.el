@@ -34,6 +34,9 @@
         flymd
         jedi
         jinja2-mode
+        lsp-mode
+        lsp-pyright
+        lsp-ui
         magit
         projectile
         python-black

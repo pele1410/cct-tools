@@ -1,5 +1,6 @@
 (require 'python-black)
 (require 'flycheck-pycheckers)
+(require 'lsp-pyright)
 ;;(require 'company-jedi)
 
 (with-eval-after-load 'flycheck
@@ -11,6 +12,7 @@
   (setq-local default-tab-width 4)
   (setq-local tab-width 4)
   (setq-local indent-tabs-mode 1)
+  (setq-local lsp-pyright-auto-import-completions t)
   (local-set-key (kbd "C-M-]") 'apheleia-format-buffer)
   )
 

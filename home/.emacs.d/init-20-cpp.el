@@ -1,3 +1,5 @@
+(require 'lsp-mode)
+
 ;; Set standard indent to 2 for C/C++ and CUDA
 (defun my-cpp-mode-hook ()
   (setq-local standard-indent 2)
