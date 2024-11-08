@@ -45,7 +45,6 @@
         python-black
         sudo-edit
         tramp
-        foo
         yaml-mode
         ))
 (package-install-selected-packages)
