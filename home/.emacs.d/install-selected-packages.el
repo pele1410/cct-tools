@@ -22,6 +22,8 @@
         company-jedi
         company-shell
         dir-treeview
+        diff-hl
+        diff-hl-flydiff
         docker
         docker-cli
         dockerfile-mode
@@ -38,10 +40,12 @@
         lsp-pyright
         lsp-ui
         magit
+        monky
         projectile
         python-black
         sudo-edit
         tramp
+        foo
         yaml-mode
         ))
 (package-install-selected-packages)
